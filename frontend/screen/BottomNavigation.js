@@ -4,15 +4,13 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Text, View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-import Profile from './screen/profile';
+import Profile from './proflie/profileMain.js';
+
 
 function HomeScreen() {
   return <Text>Home</Text>;
 }
 
-function ProfileScreen() {
-  return <Profile/>;
-}
 
 function MessageScreen() {
   return <Text>Message</Text>;

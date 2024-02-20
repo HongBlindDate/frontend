@@ -6,7 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import {MainScreen} from "./MainScreen";
+import {MainScreen} from "./BottomNavigation";
 
 
 const Stack = createStackNavigator();

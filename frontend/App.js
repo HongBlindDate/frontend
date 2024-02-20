@@ -5,13 +5,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import HomeScreen from './screen/tab/home';
 import Intro from './screen/intro';
-import ChattingScreen from './screen/tab/chatting';
-import ProfileScreen from './screen/tab/profile';
-import { AntDesign } from '@expo/vector-icons';
-
-import MainScreen from "./screen/MainScreen";
+import MainScreen from "./screen/BottomNavigation";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -20,10 +15,10 @@ export default function App() {
     return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name = "Intro" component={Intro} />
           <Stack.Screen name = "MainScreen"
           component={MainScreen}
           options={{ headerShown: false }}/>
+          {/* <Stack.Screen name = "Intro" component={Intro} />  */}
         </Stack.Navigator>
       </NavigationContainer>
     );

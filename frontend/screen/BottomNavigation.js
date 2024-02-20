@@ -6,7 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from './tab/home';
-import Intro from './/intro';
+import Intro from './intro';
 import ChattingScreen from './tab/chatting';
 import ProfileScreen from './tab/profile';
 import { AntDesign } from '@expo/vector-icons';
@@ -14,7 +14,7 @@ import { AntDesign } from '@expo/vector-icons';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const MainScreen = () => {
+const BottomNavigation = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home" //mainpage
@@ -57,4 +57,4 @@ const TabBarIcon = (focused, name) => {
     )
 }
 
-export default MainScreen;
+export default BottomNavigation;

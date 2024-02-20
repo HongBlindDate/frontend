@@ -6,7 +6,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import MainScreen from './MainScreen';
+import {MainScreen} from "./MainScreen";
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -17,7 +18,7 @@ export default function Intro({navigation}) {
           <Text>Go Start the app</Text>
           <Button
             title="Start"
-            onPress={() => navigation.navigate(MainScreen)}
+            onPress={() => {navigation.navigate('MainScreen')}}
           />
         </View>
     );

@@ -11,6 +11,8 @@ import ChattingScreen from './screen/tab/chatting';
 import ProfileScreen from './screen/tab/profile';
 import { AntDesign } from '@expo/vector-icons';
 
+import MainScreen from "./screen/MainScreen";
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -19,7 +21,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name = "Intro" component={Intro} />
-          <Stack.Screen name = "Main"
+          <Stack.Screen name = "MainScreen"
           component={MainScreen}
           options={{ headerShown: false }}/>
         </Stack.Navigator>

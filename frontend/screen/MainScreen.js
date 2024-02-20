@@ -14,7 +14,7 @@ import { AntDesign } from '@expo/vector-icons';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-MainScreen = () => {
+const MainScreen = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home" //mainpage
@@ -56,3 +56,5 @@ const TabBarIcon = (focused, name) => {
       color="black" />
     )
 }
+
+export default MainScreen;

@@ -1,15 +1,14 @@
-//profile 기본화면
 import react from "react";
 import { Text, View } from 'react-native';
 
 
-const Profile = () => {
+const Home = () => {
 
     return (
     <View>
-        <Text> profile page!</Text>
+        <Text> home page! </Text>
     </View>
     );
 }
 
-export default Profile;
+export default Home;

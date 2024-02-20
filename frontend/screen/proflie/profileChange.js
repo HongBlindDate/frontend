@@ -2,7 +2,7 @@ import react from "react";
 import { Text, View, StyleSheet ,Button} from 'react-native';
 
 
-const profileChange = () => {
+const ProfileChange = () => {
     
     return (
         <View>
@@ -12,4 +12,4 @@ const profileChange = () => {
         
 }
 
-export default profileChange;
+export default ProfileChange;

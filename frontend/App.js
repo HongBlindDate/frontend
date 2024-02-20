@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Intro from './screen/intro';
 import MainScreen from "./screen/BottomNavigation";
+import ProfileChange from './screen/proflie/profileChange';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -18,6 +19,7 @@ export default function App() {
           <Stack.Screen name = "MainScreen"
           component={MainScreen}
           options={{ headerShown: false }}/>
+          <Stack.Screen name='ProfileChange' component={ProfileChange} />
           {/* <Stack.Screen name = "Intro" component={Intro} />  */}
         </Stack.Navigator>
       </NavigationContainer>

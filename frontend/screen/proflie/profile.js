@@ -2,7 +2,8 @@ import react from "react";
 import { Text, View , Switch, StyleSheet ,Button} from 'react-native';
 import {useState} from 'react';
 
-const Profile = () => {
+
+const Profile = ({navigation}) => {
 
     const [randomopen, setrandomopen] = useState(false); //toggle switch constant
     const randomSwitch = () => setrandomopen(previousState => !previousState);
@@ -21,9 +22,10 @@ const Profile = () => {
         <View style={{flex:2,backgroundColor:"orange"}}> 
             <Text>Profile</Text>
         </View>
-
         
+        {/* for toggle switch */}
         <View style={{ flex:1, backgroundColor:"green"}}>
+
             {/* toggleswitch to random matching open/unopen */}
             <View style={{flexDirection:"row"}}>
                 <Text>랜덤매칭 여부</Text>
@@ -47,7 +49,7 @@ const Profile = () => {
                     value={idealopen}
 />
             </View>
-       
+
             {/* toggleswitch to face open open/unopen */}
             <View style={{flexDirection:"row"}}>
                 <Text> 얼굴 공개 여부</Text>
@@ -59,11 +61,15 @@ const Profile = () => {
 	                value={faceopen}
 />
             </View>
-
-            
-
         </View>
- 
+
+        {/* view to change page */}
+        <View style={{flex:1,flexDirection:"row"}}>
+            <Button
+                onPress={() => navigation.navigate('ProfileChange')}
+                title="내 프로필 수정"
+/>
+            </View>
     </View> 
     );
 }

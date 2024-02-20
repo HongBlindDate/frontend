@@ -5,9 +5,6 @@ import {useState} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import profileChange from "./profileChange.js"
-
-
 
 const Profile = () => {
 
@@ -55,7 +52,6 @@ const Profile = () => {
 />
             </View>
        
-        
             {/* toggleswitch to face open open/unopen */}
             <View style={{flexDirection:"row"}}>
                 <Text> 얼굴 공개 여부</Text>
@@ -67,12 +63,11 @@ const Profile = () => {
 	                value={faceopen}
 />
             </View>
-        
-        </View>
 
-        
-      
-     
+            
+
+        </View>
+ 
     </View> 
     );
 }

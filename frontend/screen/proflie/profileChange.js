@@ -1,8 +1,9 @@
 import react from "react";
 import { Text, View, StyleSheet ,Button} from 'react-native';
 
-const profileChange = () => {
 
+const profileChange = () => {
+    
     return (
         <View>
             <Text> hi!!! </Text>

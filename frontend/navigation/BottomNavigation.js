@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Text, View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 
-import Profile from './proflie/profileMain.js';
+import Profile from '../screen/proflie/profileMain.js';
 
 
 function HomeScreen() {

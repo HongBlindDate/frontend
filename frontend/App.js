@@ -17,7 +17,13 @@ MainScreen = () => {
   return (
     <Tab.Navigator
       initialRouteName="Intro"
-      tabBarOptions={{}}
+      tabBarOptions={{
+        "tabBarStyle": [
+          {
+            "display": "flex"
+          },
+          null
+        ]}}
       screenOptions={({route}) => ({
         tabBarLabel: route.name,
         tabBarIcon: ({focused}) => (

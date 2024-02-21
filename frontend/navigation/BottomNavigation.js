@@ -1,66 +1,58 @@
-import React from 'react';
+import { StatusBar } from 'expo-status-bar';
+import React, { Component } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer } from "@react-navigation/native";
-import { Text, View } from 'react-native';
+
+import HomeScreen from '../screen/tab/home';
+import ChattingScreen from '../screen/tab/chatting';
+import ProfileScreen from '../screen/proflie/profilemain';
 import { AntDesign } from '@expo/vector-icons';
 
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
-function HomeScreen() {
-  return <Text>Home</Text>;
-}
-
-
-function MessageScreen() {
-  return <Text>Message</Text>;
-}
-
-const Tab = createBottomTabNavigator(); //bottom tab 생성을 위함
-
-function BottomTab(){
+const BottomNavigation = () => {
   return (
-    <Tab.Navigator initialRouteName="Home"> 
-        <Tab.Screen
-          name="Home" //navigation을 이용해 이동할 때 사용할 스트링 값
-          component={HomeScreen} //해당 탭을 눌렀을 때 보여줄 화면 component
-          options={{ 
-            title: "홈",
-            tabBarIcon: ({color, size}) => (
-              <AntDesign name="home" size={24} color="black" />
-            ),
-          }}
-        />
-
-        <Tab.Screen
-          name="Message"
-          component={MessageScreen}
-          options={{
-            title: '메시지',
-            tabBarIcon: ({color, size}) => (
-              <AntDesign name="message1" size={24} color="black" />
-            ),
-          }}
-        />
-
-        <Tab.Screen
-          name="Profile"
-          component={Profile}
-          options={{
-            title: '프로필',
-            tabBarIcon: ({color, size}) => (
-              <AntDesign name="setting" size={24} color="black" />
-            ),
-          }}
-        />  
-       
-      </Tab.Navigator>
-  );
+    <Tab.Navigator
+      initialRouteName="Home" //mainpage
+      screenOptions={({route}) => ({
+        tabBarLabel: route.name,
+        tabBarIcon: ({focused}) => (
+          TabBarIcon(focused, route.name)
+        ),
+        tabBarStyle: [
+          {
+            display: "flex",
+          },
+          null
+        ]}
+      )}
+    >
+      <Tab.Screen name="Home" component={HomeScreen}/>
+      <Tab.Screen name="Chatting" component={ChattingScreen}/>
+      <Tab.Screen name="Profile" component={ProfileScreen}/>
+    </Tab.Navigator>
+  )
 }
 
+const TabBarIcon = (focused, name) => {
+  let iconName, iconSize;
 
-function Navigation() {
+  if(name == 'Home')
+    iconName = 'home'
+  else if (name == 'Chatting')
+    iconName = 'message1'
+  else if (name == 'Profile')
+    iconName = 'setting'
+
+    iconSize = focused ? 30 : 20
     return (
-      <BottomTab />
-    );
-  }
+      <AntDesign
+      name={iconName}
+      size={iconSize}
+      color="black" />
+    )
+}
 
-  export default Navigation;
+export default BottomNavigation;

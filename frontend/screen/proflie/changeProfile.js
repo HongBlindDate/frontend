@@ -1,5 +1,5 @@
 import react from "react";
-import { Text, View, StyleSheet ,Button} from 'react-native';
+import { Text, View, StyleSheet ,Button,TextInput} from 'react-native';
 
 
 const ChangeProfile = ({navigation}) => {
@@ -7,6 +7,8 @@ const ChangeProfile = ({navigation}) => {
     return (
         <View>
            <Text> changeProfile</Text>
+           <Text> 한줄소개: </Text> 
+           
            <Button
                     onPress={() => navigation.navigate('ChangeMyKeyword')} 
                     title="내 키워드 수정"

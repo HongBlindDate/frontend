@@ -70,11 +70,11 @@ const Profile = ({navigation}) => {
                 title="내 프로필 보기"
 />
             <Button
-                onPress={() => navigation.navigate('DetailProfile')} //arbitrarily screen -> fix later!!
+                onPress={() => navigation.navigate('ChangeIdeal')} 
                 title="이상형 보기"
 />
             <Button
-                onPress={() => navigation.navigate('DetailProfile')} //arbitrarily screen -> fix later!!
+                onPress={() => navigation.navigate('ChangePersonalImformation')} 
                 title="개인정보 수정"
 />
             

@@ -7,6 +7,10 @@ const ChangeProfile = ({navigation}) => {
     return (
         <View>
            <Text> changeProfile</Text>
+           <Button
+                    onPress={() => navigation.navigate('ChangeMyKeyword')} 
+                    title="내 키워드 수정"
+            />
         </View>
     );
         

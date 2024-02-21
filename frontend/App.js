@@ -1,30 +1,48 @@
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-gesture-handler';
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import HomeScreen from './screen/tab/home';
-import Intro from './screen/intro';
-import ChattingScreen from './screen/tab/chatting';
-import ProfileScreen from './screen/tab/profile';
-import { AntDesign } from '@expo/vector-icons';
+import { autoLoggedIn } from './utils/auth.js'; //Function to check whether the user is auto logged in or not 
 
+import TermsOfUse from './screen/login/termsOfUse';
+import Join from './screen/login/join';
+import LoginForm from './screen/login/loginForm';
 import MainScreen from "./screen/MainScreen";
 
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
 
 export default function App() {
-    return (
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name = "Intro" component={Intro} />
-          <Stack.Screen name = "MainScreen"
-          component={MainScreen}
-          options={{ headerShown: false }}/>
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
+  const [loading, setLoading] = useState(true);
+  const [autologgedIn, setAutoLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const checkLoginStatus = async () => {
+      const autologgedInStatus = await autoLoggedIn();
+      setAutoLoggedIn(autologgedInStatus);
+      setLoading(false);
+    };
+
+    checkLoginStatus();
+  }, []);
+
+  if (loading) {
+    return null; // Don't show anything when loading
+  }
+
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        {autologgedIn ? null : (
+          <>
+            <Stack.Screen name = "TermsOfUse" component={TermsOfUse} />
+            <Stack.Screen name = "Join" component={Join} />
+            <Stack.Screen name = "LoginForm" component={LoginForm} />
+          </>
+        )}
+        <Stack.Screen name = "MainScreen" component={MainScreen} options={{ headerShown: false }}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }

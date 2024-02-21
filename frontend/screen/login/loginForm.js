@@ -5,7 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 //should get the key from backend
 const key = "abc";
 
-export default function loginForm() {
+export default function LoginForm() {
     const [id, setId] = useState("");
     const [pw, setPw] = useState("");
     // const [status, setStatus] = useState("");
@@ -32,7 +32,7 @@ export default function loginForm() {
                 return Alert.alert("login success");
         } catch (e) {
             //error
-            //ë°±ì—?„œ ë°›ì?? errorMessage
+            //back -> errorMessage
             // <Text>{errorMessage}</Text>
         } 
     }

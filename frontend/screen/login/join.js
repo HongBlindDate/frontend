@@ -1,8 +1,16 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View , TextInput, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, View , TextInput, TouchableOpacity } from 'react-native';
 
-//after agreeing to the terms of use
-export default function join(){
+import { StatusBar } from 'expo-status-bar';
+import 'react-native-gesture-handler';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { Picker } from '@react-native-picker/picker';
+
+const Stack = createStackNavigator();
+
+export default function Join({navigation}) {
+    const [selectedDomain, setSelectedDomain] = useState('@mail.hongik.ac.kr');
     const [email, setEmail] = useState("");
     const onChangeEmail = (payload) => setEmail(payload);
 
@@ -34,7 +42,16 @@ export default function join(){
                     placeholder={"type your Email Address"}
                     style={styles.input}
                 />
-                <Text style={styles.text}>@mail.hongik.ac.kr</Text>
+                <Text style={styles.text}>@</Text>
+                {/* select between two emails */}
+                <Picker
+                    selectedValue={selectedDomain}
+                    style={styles.picker}
+                    onValueChange={(itemValue, itemIndex) => setSelectedDomain(itemValue)}
+                >
+                    <Picker.Item label="mail.hongik.ac.kr" value="mail.hongik.ac.kr" />
+                    <Picker.Item label="g.hongik.ac.kr" value="example.com" />
+                </Picker>
             </View>
             <View>
                 {/* if no input => cannot press join button */}
@@ -65,7 +82,7 @@ const styles = StyleSheet.create({
         borderColor: 'grey',
         borderRadius: 10,
         marginBottom: 10,
-        width: 200,
+        width: "45%",
         padding: 5,
     },
     email: {
@@ -75,6 +92,12 @@ const styles = StyleSheet.create({
         fontSize: 15,
         padding: 5,
         paddingTop: 10,
+    },
+    picker: {
+        height: 50,
+        width: '45%',
+        backgroundColor: '#fafafa',
+        borderRadius: 8,
     },
     loginbutton: {
         marginTop: 10,

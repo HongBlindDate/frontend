@@ -4,7 +4,6 @@ import { StyleSheet, Text, View , TextInput, TouchableOpacity } from 'react-nati
 import { StatusBar } from 'expo-status-bar';
 import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Picker } from '@react-native-picker/picker';
 
 const Stack = createStackNavigator();

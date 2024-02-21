@@ -29,35 +29,43 @@ export default function Join({navigation}) {
 
     return(
         <View style={styles.container}>
-            <View>
-                <Text style={styles.title}>Type your email to create an account</Text>
+            <View style={styles.joinContainer}>
+                <View>
+                    <Text style={styles.title}>아이디</Text>
+                </View>
+                <View>
+                    <Text style={styles.title}>비밀번호</Text>
+                </View>
+                <View>
+                    <Text style={styles.title}>이메일</Text>
+                </View>
+                {/* email certification*/}
+                <View style={styles.email}>
+                    <TextInput 
+                        keyboardType="email-address"
+                        value={email}
+                        onChangeText={onChangeEmail}
+                        placeholder={"이메일"}
+                        style={styles.input}
+                    />
+                    <Text style={styles.text}>@</Text>
+                    {/* select between two emails */}
+                    <Picker
+                        selectedValue={selectedDomain}
+                        style={styles.picker}
+                        onValueChange={(itemValue, itemIndex) => setSelectedDomain(itemValue)}
+                    >
+                        <Picker.Item label="mail.hongik.ac.kr" value="mail.hongik.ac.kr" />
+                        <Picker.Item label="g.hongik.ac.kr" value="example.com" />
+                    </Picker>
+                </View>
             </View>
-            {/* email certification*/}
-            <View style={styles.email}>
-                <TextInput 
-                    keyboardType="email-address"
-                    value={email}
-                    onChangeText={onChangeEmail}
-                    placeholder={"type your Email Address"}
-                    style={styles.input}
-                />
-                <Text style={styles.text}>@</Text>
-                {/* select between two emails */}
-                <Picker
-                    selectedValue={selectedDomain}
-                    style={styles.picker}
-                    onValueChange={(itemValue, itemIndex) => setSelectedDomain(itemValue)}
-                >
-                    <Picker.Item label="mail.hongik.ac.kr" value="mail.hongik.ac.kr" />
-                    <Picker.Item label="g.hongik.ac.kr" value="example.com" />
-                </Picker>
-            </View>
-            <View>
+            <View style={styles.buttonContainer}>
                 {/* if no input => cannot press join button */}
-                {email == "" ? (<TouchableOpacity hitSlop={{left: 5, right: 5 }} style={{...styles.loginbutton, backgroundColor: "aliceblue"}} onPress={() => send()} disabled>
-                    <Text style={{fontSize: 15}}>Send authentication number</Text>
-                </TouchableOpacity>) : (<TouchableOpacity hitSlop={{bottom: 20, top: 20, left: 30, right: 30 }} style={styles.loginbutton} onPress={() => send()}>
-                    <Text style={{fontSize: 15}}>Send authentication number</Text>
+                {email == "" ? (<TouchableOpacity hitSlop={{left: 5, right: 5 }} style={{...styles.button, backgroundColor: "#ACB0B3"}} onPress={() => send()} disabled>
+                    <Text style={{fontSize: 15, color: "#FFFFFF"}}>인증번호 전송</Text>
+                </TouchableOpacity>) : (<TouchableOpacity hitSlop={{bottom: 20, top: 20, left: 30, right: 30 }} style={styles.button} onPress={() => send()}>
+                    <Text style={{fontSize: 15}}>인증번호 전송</Text>
                 </TouchableOpacity>)}
             </View>
         </View>
@@ -66,9 +74,12 @@ export default function Join({navigation}) {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 20,
-        paddingTop: 50, 
         flex: 1,
+        padding: 20,
+        paddingTop: 50,
+    },
+    joinContainer:{
+        flex: 7,
     },
     title: {
         paddingTop: 10,
@@ -98,12 +109,19 @@ const styles = StyleSheet.create({
         backgroundColor: '#fafafa',
         borderRadius: 8,
     },
-    loginbutton: {
-        marginTop: 10,
-        backgroundColor: "cornflowerblue",
-        paddingVertical: 10,
-        paddingHorizontal: 15,
-        borderRadius: 30,
+    buttonContainer: {
+        flex: 1,
+        justifyContent:"center",
+        alignItems: "center",
+        width: "100%",
+        height: "100%",
+      },
+    button: {
+        marginTop: 5,
+        backgroundColor: "#BB2649",
+        borderRadius: 7,
+        width: "90%",
+        height: "60%",
         alignItems: "center",
         justifyContent: "center",
     },

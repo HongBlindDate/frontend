@@ -51,26 +51,28 @@ export default function LoginForm({navigation}) {
         <View style={styles.container}>
             {/* logo */}
             <View style={styles.logo}>
-                <Text style={{fontSize: 50, fontWeight: 600}}>logo</Text>
+                <Text style={{fontSize: 30, fontWeight: 600}}>홍대생만을 위한 매칭 서비스,{"\n"}
+                <Text style={{color: '#BB2649'}}>홍개팅</Text>입니다.</Text>
+                <Text style={{fontSize: 15, fontWeight: 600, color: '#626262'}}>회원 서비스 이용을 위해 로그인 해주세요.</Text>
             </View>
             {/* login input */}
             <View style={styles.login}>
                 <View style={styles.idpw}>
-                    <Text style={styles.text}>ID</Text>
                     <TextInput
                         value={id}
                         onChangeText={onChangeID}
-                        placeholder={"type your ID"}
+                        placeholder={"아이디 입력"}
+                        placeholderTextColor="#E1E2E4"
                         style={styles.input}
                     />
                 </View>
                 <View style={styles.idpw}>
-                    <Text style={styles.text}>PW</Text>
                     <TextInput
                         secureTextEntry={isPasswordSecure}
                         value={pw}
                         onChangeText={onChangePW}
-                        placeholder={"type your PW"}
+                        placeholder={"비밀번호 입력"}
+                        placeholderTextColor="#E1E2E4"
                         style={styles.input}
                         />
                     <TouchableOpacity onPress={togglePasswordVisibility}>
@@ -81,44 +83,28 @@ export default function LoginForm({navigation}) {
                         />
                     </TouchableOpacity>
                 </View>
-            </View>
-            {/* autologin select */}
-            <View style={styles.autoLogin}>
-                <TouchableOpacity onPress={toggleAutoLogin}>
-                    {autoLogin ? (
-                        <MaterialCommunityIcons
-                            name="checkbox-blank-outline"
-                            size={24}
-                            color="black" />
-                        ) : (
-                        <MaterialCommunityIcons
-                            name="checkbox-outline"
-                            size={24}
-                            color="black" />
-                        )}
-                </TouchableOpacity>
-                <Text>auto login</Text>
-            </View>
-            {/* login_button */}
-            <View>
-                {/* if no input => cannot press login button */}
-                {id === "" || pw === "" ? (<TouchableOpacity hitSlop={{left: 5, right: 5 }} style={{...styles.loginbutton, backgroundColor: "aliceblue"}} onPress={() => login(key)} disabled>
-                    <Text style={{fontSize: 15, color: "grey"}}>Login</Text>
-                </TouchableOpacity>) : (<TouchableOpacity hitSlop={{bottom: 20, top: 20, left: 30, right: 30 }} style={styles.loginbutton} onPress={() => login(key)}>
-                    <Text style={{fontSize: 15}}>Login</Text>
-                </TouchableOpacity>)}
+                <View style={styles.idpw}>
+                    {/* login_button */}
+                    {/* if no input => cannot press login button */}
+                    {id === "" || pw === "" ? (<TouchableOpacity hitSlop={{left: 5, right: 5 }} style={{...styles.loginbutton, backgroundColor: "#ACB0B3"}} onPress={() => login(key)} disabled>
+                        <Text style={{fontSize: 15, color: "#FFFFFF"}}>로그인</Text>
+                    </TouchableOpacity>) : (<TouchableOpacity style={styles.loginbutton} onPress={() => login(key)}>
+                        <Text style={{fontSize: 15, color: "#FFFFFF"}}>로그인</Text>
+                    </TouchableOpacity>)}
+                </View>
             </View>
             <View style={styles.other}>
-                <TouchableOpacity style={styles.otherThanLogin} onPress={() => {navigation.navigate('TermsOfUse')}}>
-                    <Text>Join</Text>
-                </TouchableOpacity>
                 <TouchableOpacity style={styles.otherThanLogin} onPress={() => {navigation.navigate('FindID')}}>
-                    <Text>Find ID</Text>
+                    <Text>아이디 찾기</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.otherThanLogin} onPress={() => {navigation.navigate('FindPW')}}>
-                    <Text>Find Password</Text>
+                    <Text>비밀번호 찾기</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.otherThanLogin} onPress={() => {navigation.navigate('TermsOfUse')}}>
+                    <Text>회원가입</Text>
                 </TouchableOpacity>
             </View>
+            <View style={{flex:4.5}}/>
         </View>
     );
 }
@@ -130,48 +116,59 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     logo: {
-        alignItems: "center",
-        marginTop: -300,
+        flex: 3,
+        width: "100%",
+        alignItems: "flex-start",
+        paddingHorizontal: "5%",
+        justifyContent: "center",
+        textAlign: "left",
     },
     text:{
         fontSize: 20,
     },
     login: {
+        flex: 3,
         justifyContent: "center",
         alignItems: "center",
+        width: "100%",
+        marginVertical: "-10%",
     },
     input: {
-        borderWidth: 1,
-        borderColor: 'grey',
-        borderRadius: 10,
+        flex: 1,
+        borderWidth: 1.5,
+        borderColor: '#E1E2E4',
+        borderRadius: 7,
         marginBottom: 10,
-        width: 200,
         padding: 5,
+        color: "#BB2649",
     },
     idpw:{
         flexDirection: "row",
-    },
-    autoLogin:{
-        flexDirection: "row",
+        width: "90%",
+        height: "25%",
     },
     loginbutton: {
-        marginTop: 10,
-        backgroundColor: "cornflowerblue",
-        paddingVertical: 10,
-        paddingHorizontal: 15,
-        borderRadius: 30,
+        marginTop: 5,
+        backgroundColor: "#BB2649",
+        borderRadius: 7,
+        width: "100%",
+        height: "75%",
         alignItems: "center",
         justifyContent: "center",
     },
     other: {
+        flex: 0.5,
+        paddingVertical: 0,
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
+        width: "70%",
     },
     otherThanLogin: {
+        flex: 1,
         justifyContent: "space-evenly",
-        padding: 5,
         alignItems: "center",
+        justifyContent: "flex-start"
     },
 })
 //save login info

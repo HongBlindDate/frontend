@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { autoLoggedIn } from './utils/auth.js'; //Function to check whether the user is auto logged in or not 
 
+import Start from './screen/login/start';
 import TermsOfUse from './screen/login/termsOfUse';
 import Join from './screen/login/join';
 import FindID from './screen/login/findID';
@@ -38,9 +39,10 @@ export default function App() {
       <Stack.Navigator>
         {autologgedIn ? null : (
           <>
+            <Stack.Screen name = "Start" component={Start} options={{ headerShown: false }}/>
             <Stack.Screen name = "LoginForm" component={LoginForm} options={{ headerShown: false }}/>
-            <Stack.Screen name = "TermsOfUse" component={TermsOfUse} />
-            <Stack.Screen name = "Join" component={Join} />
+            <Stack.Screen name = "TermsOfUse" component={TermsOfUse} options={{ title: false }}/>
+            <Stack.Screen name = "Join" component={Join} options={{ title: "회원가입" }}/>
             <Stack.Screen name = "FindID" component={FindID} />
             <Stack.Screen name = "FindPW" component={FindPW} />
           </>

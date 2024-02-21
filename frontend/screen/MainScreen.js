@@ -6,7 +6,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import HomeScreen from './tab/home';
-import Intro from './intro';
 import ChattingScreen from './tab/chatting';
 import ProfileScreen from './tab/profile';
 import { AntDesign } from '@expo/vector-icons';

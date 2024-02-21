@@ -9,45 +9,47 @@ export default function TermsOfUse({navigation}) {
 
   return (
     <View style={styles.container}>
+      <View style={styles.termsContainer}>
+        <Text style={{fontSize: 20}}>서비스 이용을 위해{"\n"}약관 동의가 필요합니다.</Text>
+      </View>
       {/* terms modal */}
-      <Button color="#f194ff" title="term1" onPress={() => setModal1Visible(true)} />
-      <Button title="term2" onPress={() => setModal2Visible(true)} />
+      <View>
+        <Button color="#f194ff" title="term1" onPress={() => setModal1Visible(true)} />
+        <Button title="term2" onPress={() => setModal2Visible(true)} />
 
-      {/* implement modal1 */}
-      <Modal
-        animationType="fade"
-        visible={modal1Visible}
-        onRequestClose={() => setModal1Visible(false)}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>term1</Text>
-            <Text>terms bla bla</Text>
-            <Button title="agree" onPress={() => setModal1Visible(false)} />
+        {/* implement modal1 */}
+        <Modal
+          animationType="fade"
+          visible={modal1Visible}
+          onRequestClose={() => setModal1Visible(false)}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>term1</Text>
+              <Text>terms bla bla</Text>
+              <Button title="agree" onPress={() => setModal1Visible(false)} />
+            </View>
           </View>
-        </View>
-      </Modal>
-      {/* implement modal1 */}
-      <Modal
-        animationType="fade"
-        visible={modal2Visible}
-        onRequestClose={() => setModal2Visible(false)}
-      >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>term2</Text>
-            <Text>terms bla bla</Text>
-            <Button title="agree" onPress={() => setModal2Visible(false)} />
+        </Modal>
+        {/* implement modal1 */}
+        <Modal
+          animationType="fade"
+          visible={modal2Visible}
+          onRequestClose={() => setModal2Visible(false)}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>term2</Text>
+              <Text>terms bla bla</Text>
+              <Button title="agree" onPress={() => setModal2Visible(false)} />
+            </View>
           </View>
-        </View>
-      </Modal>
-
-      {/* agree all button*/}
-      <View style={styles.button}>
-          <TouchableOpacity
-              hitSlop={{bottom: 20, top: 20, left: 30, right: 30 }} style={styles.agreeButton} onPress={() => {navigation.navigate('Join')}}
-            />
-          <Text>agree all</Text>
+        </Modal>
+      </View>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate('Join')}}>
+          <Text style={{fontSize: 15, color: "#FFFFFF"}}>다음</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -59,9 +61,10 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
     },
-    button: {
-      marginTop: 20,
-      flexDirection: "row",
+    termsContainer: {
+      flex: 7,
+      justifyContent: 'center',
+      alignItems: 'center',
     },
     agreeButton: {
       backgroundColor: "#FFB6C1",
@@ -97,5 +100,21 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       fontSize: 20,
       fontWeight: 'bold',
+    },
+    buttonContainer: {
+      flex: 1,
+      justifyContent:"center",
+      alignItems: "center",
+      width: "100%",
+      height: "100%",
+    },
+    button: {
+      marginTop: 5,
+      backgroundColor: "#BB2649",
+      borderRadius: 7,
+      width: "90%",
+      height: "60%",
+      alignItems: "center",
+      justifyContent: "center",
     },
 });

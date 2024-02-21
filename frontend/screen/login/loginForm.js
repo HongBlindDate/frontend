@@ -5,7 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 //should get the key from backend
 const key = "abc";
 
-export default function LoginForm() {
+export default function LoginForm({navigation}) {
     const [id, setId] = useState("");
     const [pw, setPw] = useState("");
     // const [status, setStatus] = useState("");
@@ -103,19 +103,19 @@ export default function LoginForm() {
             <View>
                 {/* if no input => cannot press login button */}
                 {id === "" || pw === "" ? (<TouchableOpacity hitSlop={{left: 5, right: 5 }} style={{...styles.loginbutton, backgroundColor: "aliceblue"}} onPress={() => login(key)} disabled>
-                    <Text style={{fontSize: 15}}>Login</Text>
+                    <Text style={{fontSize: 15, color: "grey"}}>Login</Text>
                 </TouchableOpacity>) : (<TouchableOpacity hitSlop={{bottom: 20, top: 20, left: 30, right: 30 }} style={styles.loginbutton} onPress={() => login(key)}>
                     <Text style={{fontSize: 15}}>Login</Text>
                 </TouchableOpacity>)}
             </View>
             <View style={styles.other}>
-                <TouchableOpacity style={styles.otherThanLogin} onPress={() => join()}>
+                <TouchableOpacity style={styles.otherThanLogin} onPress={() => {navigation.navigate('TermsOfUse')}}>
                     <Text>Join</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.otherThanLogin} onPress={() => findID()}>
+                <TouchableOpacity style={styles.otherThanLogin} onPress={() => {navigation.navigate('FindID')}}>
                     <Text>Find ID</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.otherThanLogin} onPress={() => findPW()}>
+                <TouchableOpacity style={styles.otherThanLogin} onPress={() => {navigation.navigate('FindPW')}}>
                     <Text>Find Password</Text>
                 </TouchableOpacity>
             </View>

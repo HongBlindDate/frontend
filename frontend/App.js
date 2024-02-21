@@ -8,6 +8,8 @@ import { autoLoggedIn } from './utils/auth.js'; //Function to check whether the 
 
 import TermsOfUse from './screen/login/termsOfUse';
 import Join from './screen/login/join';
+import FindID from './screen/login/findID';
+import FindPW from './screen/login/findPW.js';
 import LoginForm from './screen/login/loginForm';
 import MainScreen from "./screen/MainScreen";
 
@@ -36,9 +38,11 @@ export default function App() {
       <Stack.Navigator>
         {autologgedIn ? null : (
           <>
+            <Stack.Screen name = "LoginForm" component={LoginForm} options={{ headerShown: false }}/>
             <Stack.Screen name = "TermsOfUse" component={TermsOfUse} />
             <Stack.Screen name = "Join" component={Join} />
-            <Stack.Screen name = "LoginForm" component={LoginForm} />
+            <Stack.Screen name = "FindID" component={FindID} />
+            <Stack.Screen name = "FindPW" component={FindPW} />
           </>
         )}
         <Stack.Screen name = "MainScreen" component={MainScreen} options={{ headerShown: false }}/>

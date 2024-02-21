@@ -66,9 +66,18 @@ const Profile = ({navigation}) => {
         {/* view to change page */}
         <View style={{flex:1,flexDirection:"row"}}>
             <Button
-                onPress={() => navigation.navigate('ProfileChange')}
-                title="내 프로필 수정"
+                onPress={() => navigation.navigate('DetailProfile')} //address first letter -> write capital
+                title="내 프로필 보기"
 />
+            <Button
+                onPress={() => navigation.navigate('DetailProfile')} //arbitrarily screen -> fix later!!
+                title="이상형 보기"
+/>
+            <Button
+                onPress={() => navigation.navigate('DetailProfile')} //arbitrarily screen -> fix later!!
+                title="개인정보 수정"
+/>
+            
             </View>
     </View> 
     );

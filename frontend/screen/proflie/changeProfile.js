@@ -2,14 +2,14 @@ import react from "react";
 import { Text, View, StyleSheet ,Button} from 'react-native';
 
 
-const ProfileChange = () => {
+const ChangeProfile = ({navigation}) => {
     
     return (
         <View>
-            <Text> hi!!! </Text>
+           <Text> changeProfile</Text>
         </View>
     );
         
 }
 
-export default ProfileChange;
+export default ChangeProfile;

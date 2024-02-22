@@ -1,5 +1,4 @@
 import { StatusBar } from 'expo-status-bar';
-import 'react-native-gesture-handler';
 import React, { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -8,12 +7,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './tab/home';
 import ChattingScreen from './tab/chatting';
 import ProfileScreen from './tab/profile';
+
 import { AntDesign } from '@expo/vector-icons';
+//폴더 구조 수정해서 import 바꾸기
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-const MainScreen = () => {
+const BottomNavigation = () => {
   return (
     <Tab.Navigator
       initialRouteName="Home" //mainpage
@@ -56,4 +57,4 @@ const TabBarIcon = (focused, name) => {
     )
 }
 
-export default MainScreen;
+export default BottomNavigation;

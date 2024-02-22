@@ -1,13 +1,25 @@
-import react from "react";
-import { Text, View, StyleSheet ,Button,TextInput} from 'react-native';
+import react,{useState} from "react";
+import { Text, View, StyleSheet ,Button, TextInput , SafeAreaView } from 'react-native';
 
 
 const ChangeProfile = ({navigation}) => {
     
+    const [text, onChangeText] = useState('기본 소개글');
+
     return (
         <View>
            <Text> changeProfile</Text>
-           <Text> 한줄소개: </Text> 
+        
+        <View style={{flexDirection:"row",}}>
+           <Text > 한줄소개: </Text> 
+           <TextInput 
+                style={styles.input}
+                onChangeText={onChangeText} 
+                placeholder={""} 
+                value={text}
+        />
+        </View>
+          
            
            <Button
                     onPress={() => navigation.navigate('ChangeMyKeyword')} 
@@ -17,5 +29,11 @@ const ChangeProfile = ({navigation}) => {
     );
         
 }
+
+const styles = StyleSheet.create({
+    input:{
+        borderWidth:1,
+    }
+})
 
 export default ChangeProfile;

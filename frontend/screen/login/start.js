@@ -1,12 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
+import React from 'react';
 import 'react-native-gesture-handler';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
 
 const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
 
 export default function Start({navigation}) {
     return (

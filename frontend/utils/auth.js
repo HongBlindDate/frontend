@@ -3,7 +3,7 @@
 //if user logged in -> true , else false(need to login in)
 
 export const autoLoggedIn = () => {
-    return true;
+    return false;
 };
 
 /*

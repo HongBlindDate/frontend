@@ -3,7 +3,8 @@ import 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import StackNavigator from './navigation/StackNavigator';
+import MainStackNavigator from './navigation/MainStackNavigator';
+import LoginStackNavigator from './navigation/LoginStackNavigator';
 import { autoLoggedIn } from './utils/auth';
 
 
@@ -28,15 +29,9 @@ export default function App() {
   }
     return (
       <NavigationContainer>
-        
-        { autologgedIn ? null : (
-          <>
-          <StackNavigator/>
-          <StatusBar style="dark" /> 
-          </>
-          
-      )}
-        
+        { autologgedIn ? <MainStackNavigator/> : 
+          <LoginStackNavigator/>}
+          <StatusBar style="dark" />
       </NavigationContainer>
       
     );

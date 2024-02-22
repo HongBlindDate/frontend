@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Main from '../screen/tab/matching/main';
 import Chatting from '../screen/tab/chatting/chatting';
-import ProfileStart from '../screen/tab/proflie/profileStart';
+import ProfileStart from '../screen/tab/profile/profileStart';
 
 import { AntDesign } from '@expo/vector-icons';
 

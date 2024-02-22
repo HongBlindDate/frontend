@@ -7,8 +7,13 @@ assignees: ''
 
 ---
 
-##Description
+## Description
 > 어떤 일을 하는지 설명. 함수명 바꾸기, 띄어쓰기 수정 등.
+
+## TODO
+- [ ] 작성 예시1
+- [ ] 작성 예시2
+- [ ] 작성 예시3
 
 ##Reference
 > 선택사항. 참고할만한 자료.

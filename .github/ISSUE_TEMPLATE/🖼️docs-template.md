@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-Description
+## Description
 
 > 추가하려는 자료에 대해 설명. 시작 페이지에 로고 추가 등.
 

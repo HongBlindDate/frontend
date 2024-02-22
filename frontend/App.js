@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MainStackNavigator from './navigation/MainStackNavigator';
-import LoginStackNavigator from './navigation/LoginStackNavigator';
 import { autoLoggedIn } from './utils/auth';
 
 

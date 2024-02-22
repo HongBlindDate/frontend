@@ -13,11 +13,11 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [autologgedIn, setAutoLoggedIn] = useState(false);
 
-  useEffect(() => {
+  useEffect(() => { //check login status
     const checkLoginStatus = async () => {
       const autologgedInStatus = await autoLoggedIn();
       setAutoLoggedIn(autologgedInStatus);
-      setLoading(false);
+      setLoading(false); 
     };
 
     checkLoginStatus();

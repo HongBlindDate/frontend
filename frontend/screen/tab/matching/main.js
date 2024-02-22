@@ -2,7 +2,7 @@ import react from "react";
 import { Text, View } from 'react-native';
 
 
-const Home = () => {
+const Main = () => {
 
     return (
     <View>
@@ -11,4 +11,4 @@ const Home = () => {
     );
 }
 
-export default Home;
+export default Main;

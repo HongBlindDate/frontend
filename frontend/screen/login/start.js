@@ -8,7 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-export default function Intro({navigation}) {
+export default function Start({navigation}) {
     return (
         <View style={styles.container}>
           <View style={{flex: 8}}>

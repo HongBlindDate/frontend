@@ -4,12 +4,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import HomeScreen from './tab/home';
-import ChattingScreen from './tab/chatting';
-import ProfileScreen from './tab/profile';
+import Main from '../screen/tab/matching/main';
+import Chatting from '../screen/tab/chatting/chatting';
+import ProfileStart from '../screen/tab/proflie/profileStart';
 
 import { AntDesign } from '@expo/vector-icons';
-//폴더 구조 수정해서 import 바꾸기
+
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -17,7 +17,7 @@ const Tab = createBottomTabNavigator();
 const BottomNavigation = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home" //mainpage
+      initialRouteName="Main" //mainpage
       screenOptions={({route}) => ({
         tabBarLabel: route.name,
         tabBarIcon: ({focused}) => (
@@ -31,9 +31,9 @@ const BottomNavigation = () => {
         ]}
       )}
     >
-      <Tab.Screen name="Home" component={HomeScreen}/>
-      <Tab.Screen name="Chatting" component={ChattingScreen}/>
-      <Tab.Screen name="Profile" component={ProfileScreen}/>
+      <Tab.Screen name="Main" component={Main}/>
+      <Tab.Screen name="Chatting" component={Chatting}/>
+      <Tab.Screen name="ProfileStart" component={ProfileStart}/>
     </Tab.Navigator>
   )
 }
@@ -41,11 +41,11 @@ const BottomNavigation = () => {
 const TabBarIcon = (focused, name) => {
   let iconName, iconSize;
 
-  if(name == 'Home')
+  if(name == 'Main')
     iconName = 'home'
   else if (name == 'Chatting')
     iconName = 'message1'
-  else if (name == 'Profile')
+  else if (name == 'ProfileStart')
     iconName = 'setting'
 
     iconSize = focused ? 30 : 20

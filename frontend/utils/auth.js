@@ -1,9 +1,9 @@
 //import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// 사용자가 로그인한 경우에는 true를, 그렇지 않은 경우에는 false를 반환하는 함수
+//if user logged in -> true , else false(need to login in)
 
 export const autoLoggedIn = () => {
-    return false;
+    return true;
 };
 
 /*

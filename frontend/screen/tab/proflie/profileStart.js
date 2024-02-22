@@ -3,7 +3,7 @@ import { Text, View , Switch, StyleSheet ,Button} from 'react-native';
 import {useState} from 'react';
 
 
-const Profile = ({navigation}) => {
+const ProfileStart = ({navigation}) => {
 
     const [randomopen, setrandomopen] = useState(false); //toggle switch constant
     const randomSwitch = () => setrandomopen(previousState => !previousState);
@@ -93,4 +93,4 @@ const styles = StyleSheet.create({
 }
 )
 
-export default Profile;
+export default ProfileStart;

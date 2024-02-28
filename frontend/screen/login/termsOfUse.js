@@ -1,50 +1,63 @@
 import React, { useState } from 'react';
-import { View, Text, Button, Modal, StyleSheet, TouchableOpacity, Submit } from 'react-native';
-
-
+import { View, Text, StyleSheet, TouchableOpacity , useWindowDimensions } from 'react-native';
 
 export default function TermsOfUse({navigation}) {
-  const [modal1Visible, setModal1Visible] = useState(false);
-  const [modal2Visible, setModal2Visible] = useState(false);
+  const {width, height} = useWindowDimensions();
+  const styles = makeStyles(width, height);
+  const [allAgreed, setAllAgreed] = useState(false);
+  const [agreements, setAgreements] = useState({
+    termsAgreed: false,
+    personalInfoAgreed: false,
+    marketing: false,
+  });
 
   return (
     <View style={styles.container}>
       <View style={styles.termsContainer}>
-        <Text style={{fontSize: 20}}>서비스 이용을 위해{"\n"}약관 동의가 필요합니다.</Text>
-      </View>
-      {/* terms modal */}
-      <View>
-        <Button color="#f194ff" title="term1" onPress={() => setModal1Visible(true)} />
-        <Button title="term2" onPress={() => setModal2Visible(true)} />
-
-        {/* implement modal1 */}
-        <Modal
-          animationType="fade"
-          visible={modal1Visible}
-          onRequestClose={() => setModal1Visible(false)}
-        >
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>term1</Text>
-              <Text>terms bla bla</Text>
-              <Button title="agree" onPress={() => setModal1Visible(false)} />
+        <View style={styles.introContainer}>
+          <Text style={styles.introText}>서비스 이용을 위해{"\n"}약관 동의가 필요합니다.</Text>
+        </View>
+        <View style={styles.agreeContainer}>
+          <View style={styles.allAgreeContainer}>
+            <Text style={styles.agreeAllText}>전체동의</Text>
+          </View>
+          <View style={styles.specificTermsContainer}>
+            <View style={styles.specificTerms}>
+              <View style={styles.specificTerm}>
+                <Text style={styles.necessaryText}>필수</Text>
+              </View>
+              <View style={styles.termsButton}>
+                <TouchableOpacity><Text style={styles.text}>홍개팅 서비스 이용약관</Text></TouchableOpacity>
+              </View>
+              <View>
+                {/*체크 버튼*/}
+              </View>
+            </View>
+            <View style={styles.specificTerms}>
+              <View style={styles.specificTerm}>
+                <Text style={styles.necessaryText}>필수</Text>
+              </View>
+              <View style={styles.termsButton}>
+                <TouchableOpacity><Text style={styles.text}>개인정보 수집 및 이용 동의</Text></TouchableOpacity>
+              </View>
+              <View>
+                {/*체크 버튼*/}
+              </View>
+            </View>
+            <View style={styles.specificTerms}>
+              <View style={styles.specificTerm}>
+                <Text style={styles.unnecessaryText}>선택</Text>
+              </View>
+              <View style={styles.termsButton}>
+                <TouchableOpacity><Text style={styles.text}>마케팅 활용 동의</Text></TouchableOpacity>
+              </View>
+              <View>
+                {/*체크 버튼*/}
+              </View>
             </View>
           </View>
-        </Modal>
-        {/* implement modal1 */}
-        <Modal
-          animationType="fade"
-          visible={modal2Visible}
-          onRequestClose={() => setModal2Visible(false)}
-        >
-          <View style={styles.centeredView}>
-            <View style={styles.modalView}>
-              <Text style={styles.modalText}>term2</Text>
-              <Text>terms bla bla</Text>
-              <Button title="agree" onPress={() => setModal2Visible(false)} />
-            </View>
-          </View>
-        </Modal>
+          <View style={{flex:6}}/>
+        </View>
       </View>
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate('Join')}}>
@@ -55,51 +68,67 @@ export default function TermsOfUse({navigation}) {
   );
 };
 
-const styles = StyleSheet.create({
+const makeStyles = (width, height) => StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: 'center',
       alignItems: 'center',
+      backgroundColor: "#FFFFFF",
     },
     termsContainer: {
       flex: 7,
-      justifyContent: 'center',
-      alignItems: 'center',
+      width: "100%",
     },
-    agreeButton: {
-      backgroundColor: "#FFB6C1",
-      paddingVertical: 10,
-      paddingHorizontal: 10,
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    centeredView: {
+    introContainer: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      marginTop: 22,
+      paddingHorizontal: "7%",
+      paddingTop: "15%",
     },
-    modalView: {
-      margin: 20,
-      backgroundColor: 'white',
-      borderRadius: 20,
-      paddingHorizontal: "35%",
-      paddingVertical: "80%",
-      alignItems: 'center',
-      shadowColor: '#000',
-      shadowOffset: {
-      width: 0,
-      height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 4,
-      elevation: 5,
+    introText: {
+      fontSize: 30 * width / 400,
     },
-    modalText: {
-      marginBottom: 15,
-      textAlign: 'center',
-      fontSize: 20,
-      fontWeight: 'bold',
+    agreeContainer: {
+      flex: 2,
+      alignContent: "center",
+      justifyContent: "center",
+      marginHorizontal: "10%",
+    },
+    allAgreeContainer: {
+      flex: 1,
+      borderBottomColor: "#E1E2E4",
+      borderBottomWidth: 1,
+    },
+    agreeAllText: {
+      fontSize: 20 * width / 400,
+    },
+    specificTermsContainer: {
+      flex: 3,
+    },
+    specificTerms: {
+      flex: 1,
+      alignContent: "center",
+      alignItems: "center",
+      flexDirection: "row",
+    },
+    specificTerm: {
+      flex: 1,
+      alignContent: "center",
+    },
+    necessaryText: {
+      color: "#BB2649",
+      fontSize: 13 * width / 400,
+      fontWeight: "bold",
+    },
+    termsButton: {
+      flex: 5,
+    },
+    text: {
+      fontSize: 13 * width / 400,
+    },
+    unnecessaryText: {
+      color: "#000000",
+      fontSize: 13 * width / 400,
+      fontWeight: "bold",
     },
     buttonContainer: {
       flex: 1,

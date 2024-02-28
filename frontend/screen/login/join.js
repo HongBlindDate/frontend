@@ -1,71 +1,79 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View , TextInput, TouchableOpacity } from 'react-native';
-
-import { StatusBar } from 'expo-status-bar';
 import 'react-native-gesture-handler';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Picker } from '@react-native-picker/picker';
 
 const Stack = createStackNavigator();
 
 export default function Join({navigation}) {
-    const [selectedDomain, setSelectedDomain] = useState('@mail.hongik.ac.kr');
-    const [email, setEmail] = useState("");
-    const onChangeEmail = (payload) => setEmail(payload);
-
-    const send = () => {
-        return (
-            <View>
-                {/* authentication submit button */}
-                <TouchableOpacity hitSlop={{bottom: 20, top: 20, left: 30, right: 30 }} style={styles.loginbutton} onPress={() => submit()}>
-                    <Text style={{fontSize: 15}}>Submit</Text>
-                </TouchableOpacity>
-            </View>
-        );
-    }
-    const submit = () => {
-        return;
-    }
+    const [id, setId] = useState("");
+    const [pw, setPw] = useState("");
+    const [pwCheck, setPwCheck] = useState("");
+    const onChangeID = (payload) => setId(payload);
+    const onChangePW = (payload) => setPw(payload);
+    const onChangePWCheck = (payload) => setPwCheck(payload);
+    const [isPasswordSecure, setIsPasswordSecure] = useState(true);
 
     return(
         <View style={styles.container}>
             <View style={styles.joinContainer}>
-                <View>
-                    <Text style={styles.title}>아이디</Text>
+                <View style={{flex: 1}}/>
+                <View style={styles.idContainer}>
+                    <View>
+                        <Text style={styles.title}>아이디</Text>
+                    </View>
+                    <View style={{flex: 1}}>
+                        <View style={styles.box}>
+                            <TextInput
+                                value={id}
+                                onChangeText={onChangeID}
+                                placeholder={"아이디 입력"}
+                                placeholderTextColor="#E1E2E4"
+                                style={styles.IDinput}
+                            />
+                            <TouchableOpacity
+                                style={styles.duplicateCheck}>
+                                <Text style={{color: "#BB2649"}}>중복확인</Text>
+                            </TouchableOpacity>
+                        </View>
+                        {/* 수정해야됨!! duplicate checked-> 사용 가능한 아이디입니다.*/}
+                        {id == "" ? <Text style={{color: "#ACB0B3"}}>4~18자/영문, 숫자, 특수문자</Text> : <Text style={{color: "#BB2649"}}>사용 가능한 아이디입니다.</Text>}
+                    </View>
                 </View>
-                <View>
-                    <Text style={styles.title}>비밀번호</Text>
+                <View style={styles.pwContainer}>
+                    <View>
+                        <Text style={styles.title}>비밀번호</Text>
+                    </View>
+                    <View style={{flex: 1}}>
+                        <TextInput 
+                            secureTextEntry={isPasswordSecure}
+                            value={pw}
+                            onChangeText={onChangePW}
+                            placeholder={"비밀번호 입력"}
+                            placeholderTextColor="#E1E2E4"
+                            style={styles.PWinput}
+                        />
+                        <TextInput 
+                            secureTextEntry={isPasswordSecure}
+                            value={pwCheck}
+                            onChangeText={onChangePWCheck}
+                            placeholder={"비밀번호 확인"}
+                            placeholderTextColor="#E1E2E4"
+                            style={styles.PWinput}
+                            {...(pwCheck == "" || pw === pwCheck) ? style={borderColor: "#E1E2E4"} : style={borderColor: "#BB2649"}}
+                        />
+                        {/* 수정해야됨!! password check*/}
+                        {(pwCheck == "" || pw === pwCheck) ? <Text style={{color: "#ACB0B3"}}>4~12자/영문, 숫자</Text> : <Text style={{color: "#BB2649"}}>비밀번호가 일치하지 않습니다.</Text>}
+                    </View>
                 </View>
-                <View>
-                    <Text style={styles.title}>이메일</Text>
-                </View>
-                {/* email certification*/}
-                <View style={styles.email}>
-                    <TextInput 
-                        keyboardType="email-address"
-                        value={email}
-                        onChangeText={onChangeEmail}
-                        placeholder={"이메일"}
-                        style={styles.input}
-                    />
-                    <Text style={styles.text}>@</Text>
-                    {/* select between two emails */}
-                    <Picker
-                        selectedValue={selectedDomain}
-                        style={styles.picker}
-                        onValueChange={(itemValue, itemIndex) => setSelectedDomain(itemValue)}
-                    >
-                        <Picker.Item label="mail.hongik.ac.kr" value="mail.hongik.ac.kr" />
-                        <Picker.Item label="g.hongik.ac.kr" value="example.com" />
-                    </Picker>
-                </View>
+                <View style={{flex: 3}}/>
             </View>
             <View style={styles.buttonContainer}>
-                {/* if no input => cannot press join button */}
-                {email == "" ? (<TouchableOpacity hitSlop={{left: 5, right: 5 }} style={{...styles.button, backgroundColor: "#ACB0B3"}} onPress={() => send()} disabled>
-                    <Text style={{fontSize: 15, color: "#FFFFFF"}}>인증번호 전송</Text>
-                </TouchableOpacity>) : (<TouchableOpacity hitSlop={{bottom: 20, top: 20, left: 30, right: 30 }} style={styles.button} onPress={() => send()}>
-                    <Text style={{fontSize: 15}}>인증번호 전송</Text>
+                {/* if no input => cannot press next button */}
+                {(id  == "" || pw == "") ? (<TouchableOpacity style={{...styles.button, backgroundColor: "#ACB0B3"}} onPress disabled>
+                    <Text style={{fontSize: 15, color: "#FFFFFF"}}>다음</Text>
+                </TouchableOpacity>) : (<TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Email')}>
+                    <Text style={{fontSize: 15}}>다음</Text>
                 </TouchableOpacity>)}
             </View>
         </View>
@@ -75,46 +83,67 @@ export default function Join({navigation}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 20,
-        paddingTop: 50,
+        backgroundColor: "white",
     },
     joinContainer:{
         flex: 7,
+        paddingHorizontal: "5%",
     },
     title: {
-        paddingTop: 10,
-        paddingBottom: 10,
-        fontSize: 20,
-        fontWeight: '600',
+        fontSize: 17,
+        fontWeight: '500',
+        color: "#626262",
     },
-    input: {
+    idContainer: {
+        flex: 1.1,
+        marginBottom: "5%",
+    },
+    IDinput: {
+        flex: 7,
         borderWidth: 1,
-        borderColor: 'grey',
-        borderRadius: 10,
-        marginBottom: 10,
-        width: "45%",
-        padding: 5,
+        borderColor: "#E1E2E4",
+        borderRadius: 7,
+        height: "90%",
+        paddingHorizontal: "3%",
     },
-    email: {
+    pwContainer: {
+        flex: 1.7,
+    },
+    PWinput: {
+        flex: 1,
+        borderWidth: 1,
+        borderColor: "#E1E2E4",
+        borderRadius: 7,
+        width: "100%",
+        paddingHorizontal: "3%",
+        marginVertical: "1%",
+    },
+    duplicateCheck: {
+        flex: 3,
+        alignItems: "center",
+        justifyContent: "center",
+        marginLeft: "2%",
+        borderWidth: 1.5,
+        borderRadius: 7,
+        borderColor: "#BB2649",
+        width: "20%,",
+        height: "90%",
+    },
+    box: {
+        flex: 1,
         flexDirection: "row",
+        justifyContent: "space-between",
+        marginVertical: "1%",
     },
     text: {
         fontSize: 15,
         padding: 5,
         paddingTop: 10,
     },
-    picker: {
-        height: 50,
-        width: '45%',
-        backgroundColor: '#fafafa',
-        borderRadius: 8,
-    },
     buttonContainer: {
         flex: 1,
         justifyContent:"center",
         alignItems: "center",
-        width: "100%",
-        height: "100%",
       },
     button: {
         marginTop: 5,

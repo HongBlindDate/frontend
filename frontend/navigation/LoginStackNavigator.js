@@ -7,7 +7,7 @@ import TermsOfUse from '../screen/login/termsOfUse';
 import Join from '../screen/login/join';
 import FindID from '../screen/login/findID';
 import FindPW from '../screen/login/findPW';
-import MainStackNavigator from './MainStackNavigator';
+
 
 const Stack = createStackNavigator();
 

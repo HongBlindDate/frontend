@@ -33,7 +33,7 @@ const BottomNavigation = () => {
     >
       <Tab.Screen name="Main" component={Main}/>
       <Tab.Screen name="Chatting" component={Chatting}/>
-      <Tab.Screen name="ProfileStart" component={ProfileStart}/>
+      <Tab.Screen name="Profile" component={ProfileStart}/>
     </Tab.Navigator>
   )
 }
@@ -45,7 +45,7 @@ const TabBarIcon = (focused, name) => {
     iconName = 'home'
   else if (name == 'Chatting')
     iconName = 'message1'
-  else if (name == 'ProfileStart')
+  else if (name == 'Profile')
     iconName = 'setting'
 
     iconSize = focused ? 30 : 20

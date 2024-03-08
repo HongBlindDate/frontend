@@ -19,7 +19,7 @@ export default function App() {
   const [autologgedIn, setAutoLoggedIn] = useState(false);
 
   useEffect(() => {
-    const checkLoginStatus = async () => {
+    const checkLoginStatus = async () => { 
       const autologgedInStatus = await autoLoggedIn();
       setAutoLoggedIn(autologgedInStatus);
       setTimeout(() => setLoading(false), 1500); //splash screen time 

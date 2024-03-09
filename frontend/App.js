@@ -5,14 +5,14 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import MainStackNavigator from './navigation/MainStackNavigator';
 import { autoLoggedIn } from './utils/auth';
-
+import LoginStackNavigator from './navigation/LoginStackNavigator';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [autologgedIn, setAutoLoggedIn] = useState(false);
-
+ 
   useEffect(() => { //check login status
     const checkLoginStatus = async () => {
       const autologgedInStatus = await autoLoggedIn();

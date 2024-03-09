@@ -108,8 +108,8 @@ export default function LoginForm({navigation}) {
                         <Text style={styles.otherText}>회원가입</Text>
                     </TouchableOpacity>
                 </View>
-                <View style={{flex:5}}/>
             </View>
+            <View style={{flex:37}}/>
         </View>
     );
 }
@@ -120,24 +120,25 @@ const makeStyles = (width, height) => StyleSheet.create({
         justifyContent:"center",
         alignItems: "center",
         backgroundColor: "#FFFFFF",
+        paddingHorizontal: "5%",
     },
     intro: {
-        flex: 3,
+        flex: 37,
         width: "100%",
         alignItems: "flex-start",
-        paddingHorizontal: "5%",
+        paddingHorizontal: "2%",
         justifyContent: "center",
         textAlign: "left",
     },
     textIntro:{
-        fontSize: 25 * width / 400,
+        fontSize: 20 * width / 360,
     },
     text:{
-        fontSize: 15 * width / 400,
+        fontSize: 15 * width / 360,
         color: "#626262",
     },
     loginContainer: {
-        flex: 5,
+        flex: 26,
         justifyContent: "center",
         alignContent: "center",
         alignItems: "center",
@@ -160,11 +161,11 @@ const makeStyles = (width, height) => StyleSheet.create({
     idpw:{
         flex: 1,
         flexDirection: "row",
-        width: "80%",
+        width: "100%",
         marginVertical: "0.5%",
     },
     loginbutton: {
-        marginTop: "1%",
+        marginTop: "2%",
         backgroundColor: "#BB2649",
         borderRadius: 7,
         width: "100%",
@@ -176,14 +177,14 @@ const makeStyles = (width, height) => StyleSheet.create({
         color: "#FFFFFF"
     },
     other: {
-        flex: 0.7,
+        flex: 1,
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
         width: "65%",
     },
     otherText: {
-        fontSize: 13 * width / 400,
+        fontSize: 10 * width / 360,
     },
     otherThanLogin: {
         flex: 1,

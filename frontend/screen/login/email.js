@@ -36,8 +36,8 @@ export default function Join({navigation}) {
         <View style={styles.container}>
             <View style={styles.joinContainer}>
                 <View style={styles.intro}>
-                    <Text style={{fontSize: 30, fontWeight: 500}}>홍개팅은 <Text style={{color: '#BB2649'}}>홍대생만</Text>{"\n"}이용 가능한 서비스입니다.</Text>
-                    <Text style={{fontSize: 15, fontWeight: 600, color: '#626262'}}>{"\n"}학교 확인을 위해 이메일을 인증해주세요.</Text>
+                    <Text style={{fontSize: 30, fontFamily:'GongGothic'}}>홍개팅은 <Text style={{color: '#BB2649'}}>홍대생만</Text>{"\n"}이용 가능한 서비스입니다.</Text>
+                    <Text style={{fontSize: 15, color: '#626262'}}>{"\n"}학교 확인을 위해 이메일을 인증해주세요.</Text>
                 </View>
                 <View style={styles.emailContainer}>
                     <View>

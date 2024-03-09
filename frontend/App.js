@@ -6,7 +6,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import MainStackNavigator from './navigation/MainStackNavigator';
 import LoginStackNavigator from './navigation/LoginStackNavigator';
 import { autoLoggedIn } from './utils/auth';
-import SplashScreen from 'react-native-splash-screen';
 
 
 const Stack = createStackNavigator();
@@ -14,10 +13,6 @@ const Stack = createStackNavigator();
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [autologgedIn, setAutoLoggedIn] = useState(false);
-
-  // useEffect(() => { //shut down splash screen 
-  //   SplashScreen.hide();
-  // }, []);
 
   useEffect(() => { //check login status
     const checkLoginStatus = async () => {

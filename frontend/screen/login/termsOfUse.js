@@ -85,7 +85,8 @@ const makeStyles = (width, height) => StyleSheet.create({
       paddingTop: "15%",
     },
     introText: {
-      fontSize: 30 * width / 400,
+      fontSize: 30,
+      fontFamily:'GongGothic',
     },
     agreeContainer: {
       flex: 2,
@@ -99,7 +100,7 @@ const makeStyles = (width, height) => StyleSheet.create({
       borderBottomWidth: 1,
     },
     agreeAllText: {
-      fontSize: 20 * width / 400,
+      fontSize: 20,
     },
     specificTermsContainer: {
       flex: 3,
@@ -116,18 +117,18 @@ const makeStyles = (width, height) => StyleSheet.create({
     },
     necessaryText: {
       color: "#BB2649",
-      fontSize: 13 * width / 400,
+      fontSize: 13,
       fontWeight: "bold",
     },
     termsButton: {
       flex: 5,
     },
     text: {
-      fontSize: 13 * width / 400,
+      fontSize: 13,
     },
     unnecessaryText: {
       color: "#000000",
-      fontSize: 13 * width / 400,
+      fontSize: 13,
       fontWeight: "bold",
     },
     buttonContainer: {

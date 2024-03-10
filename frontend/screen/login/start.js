@@ -3,10 +3,17 @@ import React from 'react';
 import 'react-native-gesture-handler';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
+import useCustomFonts from '../../utils/FontLoader';
 
 const Stack = createStackNavigator();
 
 export default function Start({navigation}) {
+    const fontLoaded = useCustomFonts();
+
+    if (!fontLoaded) {
+      return null; // Don't render anything until fonts are loaded
+    }
+
     return (
         <View style={styles.container}>
           <View style={{flex: 8}}>
@@ -14,8 +21,9 @@ export default function Start({navigation}) {
             <View style={styles.logoContainer}>
               <Text style={styles.logo}>로고</Text>
               <View style={styles.text}>
-                <Text style={{fontSize: 20}}>홍개팅</Text>
-                <Text style={{fontSize: 15}}>홍대생 매칭 서비스</Text>
+                {/* font guide line */}
+                <Text style={{fontSize: 20, fontFamily:'GongGothic'}}>홍개팅</Text>
+                <Text style={{fontSize: 15, fontFamily:'Pretendard'}}>홍대생 매칭 서비스</Text> 
               </View>
             </View>
             <View style={{flex: 3}} />

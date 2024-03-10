@@ -7,10 +7,7 @@ import MainStackNavigator from './navigation/MainStackNavigator';
 import LoginStackNavigator from './navigation/LoginStackNavigator';
 import { autoLoggedIn } from './utils/auth';
 import { View, Text , ImageBackground} from 'react-native';
-
-
-
-
+import LoginStackNavigator from './navigation/LoginStackNavigator';
 
 const Stack = createStackNavigator();
 
@@ -18,8 +15,8 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [autologgedIn, setAutoLoggedIn] = useState(false);
 
-  useEffect(() => {
-    const checkLoginStatus = async () => { 
+  useEffect(() => { //check login status
+    const checkLoginStatus = async () => {
       const autologgedInStatus = await autoLoggedIn();
       setAutoLoggedIn(autologgedInStatus);
       setTimeout(() => setLoading(false), 1500); //splash screen time 

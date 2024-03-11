@@ -131,11 +131,11 @@ const makeStyles = (width, height) => StyleSheet.create({
         textAlign: "left",
     },
     textIntro:{
-        fontSize: 20,
+        fontSize: 22,
         fontFamily:'GongGothic',
     },
     text:{
-        fontSize: 15,
+        fontSize: 14,
         fontFamily:'Pretendard',
         color: "#626262",
     },
@@ -164,10 +164,8 @@ const makeStyles = (width, height) => StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         width: "100%",
-        marginVertical: "0.5%",
     },
     loginbutton: {
-        marginTop: "2%",
         backgroundColor: "#BB2649",
         borderRadius: 7,
         width: "100%",
@@ -186,7 +184,7 @@ const makeStyles = (width, height) => StyleSheet.create({
         width: "65%",
     },
     otherText: {
-        fontSize: 10,
+        fontSize: 12,
     },
     otherThanLogin: {
         flex: 1,

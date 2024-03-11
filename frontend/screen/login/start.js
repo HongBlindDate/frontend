@@ -1,10 +1,16 @@
 import React from 'react';
 import 'react-native-gesture-handler';
 import { Text, View, TouchableOpacity, StyleSheet, useWindowDimensions } from 'react-native';
+import useCustomFonts from '../../utils/FontLoader';
 
 export default function Start({navigation}) {
   const {width, height} = useWindowDimensions();
   const styles = makeStyles(width, height);
+  const fontLoaded = useCustomFonts();
+
+  if (!fontLoaded) {
+    return null; // Don't render anything until fonts are loaded
+  }
     return (
         <View style={styles.container}>
           <View style={styles.startContainer}>
@@ -59,10 +65,12 @@ const makeStyles = (width, height) => StyleSheet.create({
     textAlignVertical: "center",
   },
   titleText: {
-    fontSize: 20 * width / 400,
+    fontSize: 25,
+    fontFamily:'GongGothic',
   },
   descriptionText: {
-    fontSize: 15 * width / 400,
+    fontSize: 14,
+    fontFamily:'GongGothic',
   },
   buttonContainer: {
     flex: 1,

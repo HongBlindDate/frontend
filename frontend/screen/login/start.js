@@ -20,22 +20,10 @@ export default function Start({navigation}) {
             <View style={Styles.logoContainer}>
               <Text style={Styles.logo}>로고</Text>
               <View style={Styles.intro}>
-                {/* font guide line */}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                <Text style={{fontSize: 20, fontFamily:'GongGothic'}}>홍개팅</Text>
-                <Text style={{fontSize: 15, fontFamily:'Pretendard'}}>홍대생 매칭 서비스</Text> 
-=======
-=======
->>>>>>> Stashed changes
                 <View style={{flex:29}}/>
                 <Text style={styles.title1}>홍개팅</Text>
                 <View style={{flex:6}}/>
-                <Text style={Styles.semiTitleText}>홍대생 매칭 서비스</Text> 
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+                <Text style={Styles.semiTitleText}>홍대생 매칭 서비스</Text>
               </View>
             </View>
             <View style={{flex: 249}} />

@@ -9,45 +9,54 @@ const styles = StyleSheet.create({
         paddingHorizontal: "5%",
     },
     intro: {
-        flex: 37,
-        width: "100%",
-        alignItems: "flex-start",
+        flex: 85,
         paddingHorizontal: "2%",
-        justifyContent: "center",
-        textAlign: "left",
+        justifyContent: 'center',
+        textAlign: 'left',
+        width: "100%",
     },
-    introText:{
+    title1: {
+        fontSize: 25,
+        fontFamily: 'GongGothic',
+    },
+    title2: {
         fontSize: 22,
-        fontFamily:'GongGothic',
+        fontFamily: 'GongGothic',
     },
     text1:{
         fontSize: 14,
         fontFamily:'PretendardMedium',
         color: "#626262",
     },
-    input: {
-        flex: 1,
-        justifyContent: "center",
-        borderWidth: 1.5,
-        borderColor: '#E1E2E4',
-        borderRadius: 7,
-        backgroundColor: "transparent",
+    inputText: {
+        color: 'black',
         fontFamily:'PretendardMedium',
         fontSize: 13,
+        borderWidth: 1,
+        borderColor: "#E1E2E4",
+        borderRadius: 7,
+        width: "100%",
+        paddingHorizontal: "3%",
+    },
+    buttonContainer: {
+        flex: 44,
+        width: "100%",
+        alignItems: "center",
+        justifyContent: "center",
     },
     button: {
         backgroundColor: "#BB2649",
         borderRadius: 7,
         width: "100%",
+        height: "100%",
         alignItems: "center",
         justifyContent: "center",
     },
     buttonText: {
         fontSize: 15,
-        fontFamily:'Pretendard',
+        fontFamily:'PretendardMedium',
         color: "#FFFFFF",
     },
 })
-//save login info
 
 export default styles;

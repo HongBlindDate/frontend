@@ -21,39 +21,12 @@ export default function LoginForm({navigation}) {
     const togglePasswordVisibility = () => {
         setIsPasswordSecure(!isPasswordSecure); //password eye toggle
       };
-    const toggleAutoLogin = () => {
-        setAutoLogin(!autoLogin); //login toggle
-      };
 
-    const login = async() => {
-        //check id & pw
-        try{
-            if (id !== "abc" || pw !== "abc") //login fail
-                throw new SyntaxError("id or pw is wrong");
-            if(id === "abc" & pw === "abc") //login success
-                return Alert.alert("login success");
-        } catch (e) {
-            //error
-            //back -> errorMessage
-            // <Text>{errorMessage}</Text>
-        } 
-    }
-    //auto login t/f
-    //if 
-    const join = async() =>{
-        return;
-    }
-    const findID = async() =>{
-        return;
-    }
-    const findPW = async() =>{
-        return;
-    }
     return (
         <View style={styles.container}>
             <View style={{flex:98}}/>
             <View style={styles.intro}>
-                <Text style={styles.title1}>홍대생만을 위한 매칭 서비스,{"\n"}
+                <Text style={styles.title2}>홍대생만을 위한 매칭 서비스,{"\n"}
                 <Text style={{color: '#BB2649'}}>홍개팅</Text>입니다.</Text>
                 <View style={{flex:12}}/>
                 <Text style={styles.text1}>회원 서비스 이용을 위해 로그인 해주세요.</Text>
@@ -70,6 +43,7 @@ export default function LoginForm({navigation}) {
                         style={styles.inputText}
                     />
                 </View>
+                <View style={{flex:8}}/>
                 <View style={Styles.idpw}>
                     <TextInput
                         secureTextEntry={isPasswordSecure}
@@ -87,10 +61,11 @@ export default function LoginForm({navigation}) {
                         />
                     </TouchableOpacity>
                 </View>
+                <View style={{flex:18}}/>
                 <View styles={styles.buttonContainer}>
                     {/* login_button */}
                     {/* if no input => cannot press login button */}
-                    {id === "" || pw === "" ? (<TouchableOpacity hitSlop={{left: 5, right: 5 }} style={{...styles.button, backgroundColor: "#ACB0B3"}} onPress={() => login(key)} disabled>
+                    {id === "" || pw === "" ? (<TouchableOpacity style={{...styles.button, backgroundColor: "#ACB0B3"}} onPress={() => login(key)} disabled>
                         <Text style={styles.buttonText}>로그인</Text>
                     </TouchableOpacity>) : (<TouchableOpacity style={styles.button} onPress={() => login(key)}>
                         <Text style={styles.buttonText}>로그인</Text>
@@ -99,15 +74,19 @@ export default function LoginForm({navigation}) {
             </View>
             <View style={{flex:22}}/>
             <View style={Styles.other}>
+                <View style={{flex:78}}/>
                 <TouchableOpacity style={Styles.otherThanLogin} onPress={() => {navigation.navigate('FindID')}}>
                     <Text style={styles.otherText}>아이디 찾기</Text>
                 </TouchableOpacity>
+                <View style={{flex:20}}/>
                 <TouchableOpacity style={Styles.otherThanLogin} onPress={() => {navigation.navigate('FindPW')}}>
                     <Text style={styles.otherText}>비밀번호 찾기</Text>
                 </TouchableOpacity>
+                <View style={{flex:20}}/>
                 <TouchableOpacity style={Styles.otherThanLogin} onPress={() => {navigation.navigate('TermsOfUse')}}>
                     <Text style={styles.otherText}>회원가입</Text>
                 </TouchableOpacity>
+                <View style={{flex:78}}/>
             </View>
             <View style={{flex:269}}/>
         </View>
@@ -115,20 +94,15 @@ export default function LoginForm({navigation}) {
 }
 
 const Styles = StyleSheet.create({
-    text:{
-        fontSize: 20,
-    },
     loginContainer: {
         flex: 154,
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
+        backgroundColor: 'black',
     },
     idpw:{
-        flex: 42,
-        flexDirection: "row",
         width: "100%",
-        height: "100%",
         alignItems: "center",
         justifyContent: "center",
         alignContent: "center",
@@ -138,13 +112,11 @@ const Styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
-        width: "70%",
     },
     otherThanLogin: {
-        flex: 1,
-        justifyContent: "space-evenly",
+        flex: 55,
         alignItems: "center",
-        justifyContent: "flex-start"
+        justifyContent: "center",
     },
     otherText: {
         fontSize: 12,

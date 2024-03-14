@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
         color: "#626262",
     },
     inputText: {
+        flex: 42,
         color: 'black',
         fontFamily:'PretendardMedium',
         fontSize: 13,
@@ -41,14 +42,15 @@ const styles = StyleSheet.create({
     buttonContainer: {
         flex: 44,
         width: "100%",
+        height: "100%",
         alignItems: "center",
         justifyContent: "center",
     },
     button: {
-        backgroundColor: "#BB2649",
-        borderRadius: 7,
         width: "100%",
         height: "100%",
+        backgroundColor: "#BB2649",
+        borderRadius: 7,
         alignItems: "center",
         justifyContent: "center",
     },

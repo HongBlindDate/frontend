@@ -21,6 +21,9 @@ export default function LoginForm({navigation}) {
     const togglePasswordVisibility = () => {
         setIsPasswordSecure(!isPasswordSecure); //password eye toggle
       };
+    function login() {
+        return true;
+    }
 
     return (
         <View style={styles.container}>
@@ -42,9 +45,7 @@ export default function LoginForm({navigation}) {
                         placeholderTextColor="#E1E2E4"
                         style={styles.inputText}
                     />
-                </View>
-                <View style={{flex:8}}/>
-                <View style={Styles.idpw}>
+                    <View style={{flex:8}}/>
                     <TextInput
                         secureTextEntry={isPasswordSecure}
                         value={pw}
@@ -61,16 +62,16 @@ export default function LoginForm({navigation}) {
                         />
                     </TouchableOpacity>
                 </View>
-                <View style={{flex:18}}/>
-                <View styles={styles.buttonContainer}>
-                    {/* login_button */}
-                    {/* if no input => cannot press login button */}
-                    {id === "" || pw === "" ? (<TouchableOpacity style={{...styles.button, backgroundColor: "#ACB0B3"}} onPress={() => login(key)} disabled>
-                        <Text style={styles.buttonText}>로그인</Text>
-                    </TouchableOpacity>) : (<TouchableOpacity style={styles.button} onPress={() => login(key)}>
-                        <Text style={styles.buttonText}>로그인</Text>
-                    </TouchableOpacity>)}
-                </View>
+            </View>
+            <View style={{flex:18}}/>
+            <View style={styles.buttonContainer}>
+                {/* login_button */}
+                {/* if no input => cannot press login button */}
+                {id === "" || pw === "" ? (<TouchableOpacity style={{...styles.button, backgroundColor: "#ACB0B3"}} onPress={() => login()} disabled>
+                    <Text style={styles.buttonText}>로그인</Text>
+                </TouchableOpacity>) : (<TouchableOpacity style={styles.button} onPress={() => login()}>
+                    <Text style={styles.buttonText}>로그인</Text>
+                </TouchableOpacity>)}
             </View>
             <View style={{flex:22}}/>
             <View style={Styles.other}>
@@ -95,13 +96,13 @@ export default function LoginForm({navigation}) {
 
 const Styles = StyleSheet.create({
     loginContainer: {
-        flex: 154,
+        flex: 92,
         justifyContent: "center",
         alignItems: "center",
         width: "100%",
-        backgroundColor: 'black',
     },
     idpw:{
+        flex: 92,
         width: "100%",
         alignItems: "center",
         justifyContent: "center",

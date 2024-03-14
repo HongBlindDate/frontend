@@ -2,10 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import 'react-native-gesture-handler';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
 import useCustomFonts from '../../utils/FontLoader';
 
-const Stack = createStackNavigator();
+import styles from './theme.js';
 
 export default function Start({navigation}) {
     const fontLoaded = useCustomFonts();
@@ -16,65 +15,62 @@ export default function Start({navigation}) {
 
     return (
         <View style={styles.container}>
-          <View style={{flex: 8}}>
-            <View style={{flex: 3}} />
-            <View style={styles.logoContainer}>
-              <Text style={styles.logo}>로고</Text>
-              <View style={styles.text}>
+          <View style={{flex: 658}}>
+            <View style={{flex: 248}} />
+            <View style={Styles.logoContainer}>
+              <Text style={Styles.logo}>로고</Text>
+              <View style={Styles.intro}>
                 {/* font guide line */}
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
                 <Text style={{fontSize: 20, fontFamily:'GongGothic'}}>홍개팅</Text>
                 <Text style={{fontSize: 15, fontFamily:'Pretendard'}}>홍대생 매칭 서비스</Text> 
+=======
+=======
+>>>>>>> Stashed changes
+                <View style={{flex:29}}/>
+                <Text style={styles.title1}>홍개팅</Text>
+                <View style={{flex:6}}/>
+                <Text style={Styles.semiTitleText}>홍대생 매칭 서비스</Text> 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
               </View>
             </View>
-            <View style={{flex: 3}} />
+            <View style={{flex: 249}} />
           </View>
           <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate('LoginForm')}}>
-            <Text style={{fontSize: 15, color: "#FFFFFF"}}>시작하기</Text>
-          </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate('LoginForm')}}>
+              <Text style={styles.buttonText}>시작하기</Text>
+            </TouchableOpacity>
           </View>
+          <View style={{flex:26}}/>
         </View>
     );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent:"center",
-    alignItems: "center",
-  },
+const Styles = StyleSheet.create({
   logoContainer: {
-    flex: 6,
+    flex: 161,
     width: "100%",
     justifyContent:"center",
     alignItems: "center",
   },
   logo: {
-    flex: 4,
+    flex: 80,
     justifyContent:"center",
     alignItems: "center",
     textAlignVertical: "center",
   },
-  text: {
-    flex: 2,
+  intro: {
+    flex: 81,
     justifyContent:"center",
     alignItems: "center",
     textAlignVertical: "center",
   },
-  buttonContainer: {
-    flex: 1,
-    justifyContent:"center",
-    alignItems: "center",
-    width: "100%",
-    height: "100%",
-  },
-  button: {
-    marginTop: 5,
-    backgroundColor: "#BB2649",
-    borderRadius: 7,
-    width: "90%",
-    height: "60%",
-    alignItems: "center",
-    justifyContent: "center",
+  semiTitleText: {
+    fontSize: 14,
+    fontFamily:'PretendardRegular',
   },
 })

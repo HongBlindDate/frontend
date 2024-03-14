@@ -151,4 +151,3 @@ const Styles = StyleSheet.create({
         fontFamily: 'PretendardMedium',
     }
 })
-//save login info

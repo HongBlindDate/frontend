@@ -1,9 +1,11 @@
 import react from "react";
 import { Text, View , Switch, StyleSheet ,Button} from 'react-native';
 import {useState} from 'react';
-
+import useCustomFonts from '../../../utils/FontLoader';
 
 const ProfileStart = ({navigation}) => {
+
+    const fontLoaded = useCustomFonts();
 
     const [randomopen, setrandomopen] = useState(false); //toggle switch constant
     const randomSwitch = () => setrandomopen(previousState => !previousState);
@@ -14,6 +16,9 @@ const ProfileStart = ({navigation}) => {
     const [faceopen, setfaceopen] = useState(false); //toggle switch constant
     const faceSwitch = () => setfaceopen(previousState => !previousState);
 
+    if (!fontLoaded) { // this code's sequence is important
+        return null; // Don't render anything until fonts are loaded
+      }
 
     return (
     <View style={styles.container}>
@@ -28,7 +33,7 @@ const ProfileStart = ({navigation}) => {
 
             {/* toggleswitch to random matching open/unopen */}
             <View style={{flexDirection:"row"}}>
-                <Text>랜덤매칭 여부</Text>
+                <Text style={{fontFamily:'GongGothic'}}>랜덤매칭 여부</Text>
                 <Switch
 	                trackColor={{false: '#767577', true: '#81b0ff'}}
 	                thumbColor={randomopen ? '#f5dd4b' : '#f4f3f4'}

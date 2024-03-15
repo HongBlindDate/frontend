@@ -23,7 +23,7 @@ export default function Start({navigation}) {
               <View style={styles.text}>
                 {/* font guide line */}
                 <Text style={{fontSize: 20, fontFamily:'GongGothic'}}>홍개팅</Text>
-                <Text style={{fontSize: 15, fontFamily:'Pretendard'}}>홍대생 매칭 서비스</Text> 
+                <Text style={{fontSize: 15, fontFamily:'PretendardRegular'}}>홍대생 매칭 서비스</Text> 
               </View>
             </View>
             <View style={{flex: 3}} />

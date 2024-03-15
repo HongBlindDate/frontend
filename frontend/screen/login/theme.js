@@ -28,6 +28,11 @@ const styles = StyleSheet.create({
         fontFamily:'PretendardMedium',
         color: "#626262",
     },
+    text2: {
+        fontSize: 15,
+        fontFamily:'PretendardMedium',
+        color: "#5E5E5E",
+    },
     inputText: {
         flex: 42,
         color: 'black',

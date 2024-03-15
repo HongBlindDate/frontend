@@ -54,13 +54,6 @@ export default function LoginForm({navigation}) {
                         placeholderTextColor="#E1E2E4"
                         style={styles.inputText}
                         />
-                    <TouchableOpacity onPress={togglePasswordVisibility}>
-                        <MaterialCommunityIcons
-                            name={isPasswordSecure ? "eye-off" : "eye"}
-                            size={28}
-                            color={isPasswordSecure ? 'grey' : 'black'}
-                        />
-                    </TouchableOpacity>
                 </View>
             </View>
             <View style={{flex:18}}/>
@@ -75,7 +68,7 @@ export default function LoginForm({navigation}) {
             </View>
             <View style={{flex:22}}/>
             <View style={Styles.other}>
-                <View style={{flex:78}}/>
+                <View style={{flex:51}}/>
                 <TouchableOpacity style={Styles.otherThanLogin} onPress={() => {navigation.navigate('FindID')}}>
                     <Text style={styles.otherText}>아이디 찾기</Text>
                 </TouchableOpacity>
@@ -87,7 +80,7 @@ export default function LoginForm({navigation}) {
                 <TouchableOpacity style={Styles.otherThanLogin} onPress={() => {navigation.navigate('TermsOfUse')}}>
                     <Text style={styles.otherText}>회원가입</Text>
                 </TouchableOpacity>
-                <View style={{flex:78}}/>
+                <View style={{flex:51}}/>
             </View>
             <View style={{flex:269}}/>
         </View>
@@ -113,9 +106,10 @@ const Styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",
+        width: "100%",
     },
     otherThanLogin: {
-        flex: 55,
+        flex: 86,
         alignItems: "center",
         justifyContent: "center",
     },

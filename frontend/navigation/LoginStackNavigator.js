@@ -8,6 +8,7 @@ import Join from '../screen/login/join';
 import Email from '../screen/login/email';
 import FindID from '../screen/login/findID';
 import FindPW from '../screen/login/findPW';
+import Welcome from '../screen/login/welcome';
 import MainStackNavigator from './MainStackNavigator';
 
 const Stack = createStackNavigator();
@@ -23,6 +24,7 @@ const LoginStackNavigator = () => {
             <Stack.Screen name="Email" component={Email} options={{ title: false }}/>
             <Stack.Screen name = "FindID" component={FindID} />
             <Stack.Screen name = "FindPW" component={FindPW} />
+            <Stack.Screen name = "Welcome" component={Welcome} options={{ headerShown: false }}/>
         </Stack.Group>
       </Stack.Navigator>
     );

@@ -72,20 +72,18 @@ export default function LoginForm({navigation}) {
             <View style={{flex:22}}/>
             <View style={Styles.other}>
                 <View style={{flex:51}}/>
-                <TouchableOpacity style={Styles.otherThanLogin} onPress={() => {navigation.navigate('FindID')}}>
+                <TouchableOpacity style={{...Styles.otherThanLogin, flex: 74}} onPress={() => {navigation.navigate('FindID')}}>
                     <Text style={styles.otherText}>아이디 찾기</Text>
                 </TouchableOpacity>
-                <View style={{flex:20}}/>
-                <TouchableOpacity style={Styles.otherThanLogin} onPress={() => {navigation.navigate('FindPW')}}>
+                <TouchableOpacity style={{...Styles.otherThanLogin, borderLeftWidth: 1, borderColor: '#E1E2E4'}} onPress={() => {navigation.navigate('FindPW')}}>
                     <Text style={styles.otherText}>비밀번호 찾기</Text>
                 </TouchableOpacity>
-                <View style={{flex:20}}/>
-                <TouchableOpacity style={Styles.otherThanLogin} onPress={() => {navigation.navigate('TermsOfUse')}}>
+                <TouchableOpacity style={{...Styles.otherThanLogin, flex: 62, borderLeftWidth: 1, borderColor: '#E1E2E4'}} onPress={() => {navigation.navigate('TermsOfUse')}}>
                     <Text style={styles.otherText}>회원가입</Text>
                 </TouchableOpacity>
                 <View style={{flex:51}}/>
             </View>
-            <View style={{flex:269}}/>
+            <View style={{flex:268}}/>
         </View>
     );
 }
@@ -119,6 +117,7 @@ const Styles = StyleSheet.create({
         flex: 86,
         alignItems: "center",
         justifyContent: "center",
+        alignContent: 'center',
     },
     otherText: {
         fontSize: 12,

@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View , TextInput, TouchableOpacity } from 'react-native';
 import 'react-native-gesture-handler';
 
+import styles from './theme.js';
+
 export default function Join({navigation}) {
     const [id, setId] = useState("");
     const [pw, setPw] = useState("");
@@ -53,65 +55,75 @@ export default function Join({navigation}) {
 
     return(
         <View style={styles.container}>
-            <View style={styles.joinContainer}>
-                <View style={{flex: 1}}/>
-                <View style={styles.idContainer}>
-                    <View>
-                        <Text style={styles.title}>아이디</Text>
+            <View style={Styles.joinContainer}>
+                <View style={{flex: 95}}/>
+                <View style={Styles.idContainer}>
+                    <View style={{flex: 17}}>
+                        <Text style={styles.text4}>아이디</Text>
                     </View>
-                    <View style={{flex: 1}}>
-                        <View style={styles.box}>
+                    <View style={{flex: 10}}/>
+                    <View style={{flex: 64}}>
+                        <View style={Styles.box}>
                             <TextInput
                                 value={id}
                                 onChangeText={onChangeID}
                                 placeholder={"아이디 입력"}
                                 placeholderTextColor="#E1E2E4"
-                                placeholderFontFamily="PretendardMedium"
-                                style={styles.IDinput}
+                                style={{...styles.inputText, flex:206}}
                             />
+                            <View style={{flex: 8}}/>
                             {/*중복확인버튼*/}
                             {id == ""?
                             <TouchableOpacity
-                                style={styles.duplicateCheck} onPress disabled>
-                                <Text style={{color: "#ACB0B3"}}>중복확인</Text>
+                                style={Styles.duplicateCheck} onPress disabled>
+                                <Text style={{...styles.text3, color: "#ACB0B3"}}>중복확인</Text>
                             </TouchableOpacity>
                             : <TouchableOpacity
-                                style={styles.duplicateCheck} onPress={()=> requestDuplicateCheck(onChangeID)}>
-                                <Text style={{color: "#BB2649"}}>중복확인</Text>
+                                style={{...Styles.duplicateCheck, borderColor: "#ACB0B3"}}
+                                onPress={()=> requestDuplicateCheck({onChangeID})}>
+                                <Text style={{...styles.text3, color: "#BB2649"}}>중복확인</Text>
                             </TouchableOpacity>}
                         </View>
-                        {/* 수정해야됨!! duplicate checked-> 사용 가능한 아이디입니다.*/}
-                        {!isIdUsable ? <Text style={{color: "#ACB0B3"}}>4~18자/영문, 숫자, 특수문자</Text> : <Text style={{color: "#BB2649"}}>사용 가능한 아이디입니다.</Text>}
+                        <View style={{flex: 8}}/>
+                        <View style={{flex: 14}}>
+                            {/* 수정해야됨!! duplicate checked-> 사용 가능한 아이디입니다.*/}
+                            {!isIdUsable ? <Text style={styles.text5}>4~18자/영문, 숫자, 특수문자</Text> : <Text style={{...styles.text5, color: "#BB2649"}}>사용 가능한 아이디입니다.</Text>}
+                        </View>
                     </View>
                 </View>
-                <View style={styles.pwContainer}>
+                <View style={{flex: 22}}/>
+                <View style={Styles.pwContainer}>
                     <View>
-                        <Text style={styles.title}>비밀번호</Text>
+                        <Text style={styles.text4}>비밀번호</Text>
                     </View>
-                    <View style={{flex: 1}}>
+                    <View style={{flex: 10}}/>
+                    <View style={{flex: 116}}>
                         <TextInput 
                             secureTextEntry={isPasswordSecure}
                             value={pw}
                             onChangeText={onChangePW}
                             placeholder={"비밀번호 입력"}
                             placeholderTextColor="#E1E2E4"
-                            style={styles.PWinput}
+                            style={styles.inputText}
                         />
+                        <View style={{flex: 10}}/>
                         <TextInput 
                             secureTextEntry={isPasswordSecure}
                             value={pwCheck}
                             onChangeText={onChangePWCheck}
                             placeholder={"비밀번호 확인"}
                             placeholderTextColor="#E1E2E4"
-                            style={styles.PWinput}
-                            {...(pwCheck == "" || pw === pwCheck) ? style={borderColor: "#E1E2E4"} : style={borderColor: "#BB2649"}}
+                            style={{...styles.inputText, borderColor : (pw == "" || pwCheck =="" || pw === pwCheck)?  "#E1E2E4" : "#BB2649"}}
                         />
+                        <View style={{flex: 8}}/>
                         {/* 수정해야됨!! password check*/}
-                        {(pwCheck == "" || pw === pwCheck) ? <Text style={styles.text}>4~12자/영문, 숫자</Text> : <Text style={{...styles.text, color: "#BB2649"}}>비밀번호가 일치하지 않습니다.</Text>}
+                        <View style={{flex: 14}}>
+                            {(pwCheck == "" || pw === pwCheck) ? <Text style={styles.text5}>4~12자/영문, 숫자</Text> : <Text style={{...styles.text5, color: "#BB2649"}}>비밀번호가 일치하지 않습니다.</Text>}
+                        </View>
                     </View>
                 </View>
-                <View style={{flex: 3}}/>
             </View>
+            <View style={{flex: 307}}/>
             <View style={styles.buttonContainer}>
                 {/* 다음버튼. 중복확인, 비밀번호가 일치해야 누를 수 있음 */}
                 {(id  == "" || pw == "") ? (<TouchableOpacity style={{...styles.button, backgroundColor: "#ACB0B3"}} onPress disabled>
@@ -120,87 +132,40 @@ export default function Join({navigation}) {
                     <Text style={styles.buttonText}>다음</Text>
                 </TouchableOpacity>)}
             </View>
+            <View style={{flex: 26}}/>
         </View>
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: "white",
-    },
+const Styles = StyleSheet.create({
     joinContainer:{
-        flex: 7,
-        paddingHorizontal: "5%",
-    },
-    title: {
-        fontSize: 14,
-        fontWeight: '500',
-        color: "#626262",
-        fontFamily:'PretendardMedium',
+        flex: 256,
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
     },
     idContainer: {
-        flex: 1.1,
-    },
-    IDinput: {
-        flex: 7,
-        borderWidth: 1,
-        borderColor: "#E1E2E4",
-        borderRadius: 7,
-        paddingHorizontal: "3%",
-        fontFamily:'PretendardMedium',
-        fontSize: 13,
+        flex: 91,
+        width: "100%",
     },
     pwContainer: {
-        flex: 1.7,
-    },
-    PWinput: {
-        flex: 1,
-        borderWidth: 1,
-        borderColor: "#E1E2E4",
-        borderRadius: 7,
+        flex: 143,
         width: "100%",
-        paddingHorizontal: "3%",
-        fontFamily:'PretendardMedium',
-        fontSize: 13,
     },
     duplicateCheck: {
-        flex: 3,
+        flex: 108,
         alignItems: "center",
         justifyContent: "center",
         marginLeft: "2%",
         borderWidth: 1.5,
         borderRadius: 7,
         borderColor: "#BB2649",
-        width: "20%,",
-        height: "90%",
     },
     box: {
-        flex: 1,
+        flex: 42,
         flexDirection: "row",
         justifyContent: "space-between",
-    },
-    text: {
-        fontSize: 12,
-        fontFamily:'PretendardMedium',
-        color: "#ACB0B3",
-    },
-    buttonContainer: {
-        flex: 1,
-        justifyContent:"center",
-        alignItems: "center",
-      },
-    button: {
-        marginTop: 5,
-        backgroundColor: "#BB2649",
-        borderRadius: 7,
-        width: "90%",
-        alignItems: "center",
-        justifyContent: "center",
-    },
-    buttonText: {
-        fontSize: 15,
-        color: "white",
-        fontFamily:'PretendardMedium',
+        width: "100%",
+        height: "100%",
     },
 })

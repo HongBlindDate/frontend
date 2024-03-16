@@ -33,16 +33,36 @@ const styles = StyleSheet.create({
         fontFamily:'PretendardMedium',
         color: "#5E5E5E",
     },
+    text3: {
+        fontSize: 13,
+        fontFamily:'PretendardMedium',
+        color: "#BB2649",
+    },
+    text4: {
+        fontSize: 14,
+        fontFamily:'PretendardMedium',
+        color: "#626262",
+    },
+    text5: {
+        fontSize: 14,
+        fontFamily:'PretendardRegular',
+        color: "#ACB0B3",
+    },
+    text6: {
+        fontSize: 12,
+        fontFamily:'PretendardMedium',
+        color: "#626262",
+    },
     inputText: {
         flex: 42,
-        color: 'black',
+        color: '#000000',
         fontFamily:'PretendardMedium',
         fontSize: 13,
         borderWidth: 1,
         borderColor: "#E1E2E4",
         borderRadius: 7,
         width: "100%",
-        paddingHorizontal: "3%",
+        paddingHorizontal: 15,
     },
     buttonContainer: {
         flex: 44,

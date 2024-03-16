@@ -1,7 +1,9 @@
 import React from 'react';
 import 'react-native-gesture-handler';
-import { Text, View, TouchableOpacity, StyleSheet, useWindowDimensions } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 import useCustomFonts from '../../utils/FontLoader';
+
+import styles from './theme.js';
 
 export default function Start({navigation}) {
   const {width, height} = useWindowDimensions();
@@ -13,78 +15,50 @@ export default function Start({navigation}) {
   }
     return (
         <View style={styles.container}>
-          <View style={styles.startContainer}>
-            <View style={{flex: 3}} />
-            <View style={styles.logoContainer}>
-              <Text style={styles.logo}>로고</Text>
-              <View style={styles.intro}>
-                <Text style={styles.titleText}>홍개팅</Text>
-                <Text style={styles.descriptionText}>홍대생 매칭 서비스</Text>
-                <Text>width: {width}</Text>
+          <View style={{flex: 658}}>
+            <View style={{flex: 248}} />
+            <View style={Styles.logoContainer}>
+              <Text style={Styles.logo}>로고</Text>
+              <View style={Styles.intro}>
+                <View style={{flex:29}}/>
+                <Text style={styles.title1}>홍개팅</Text>
+                <View style={{flex:6}}/>
+                <Text style={Styles.semiTitleText}>홍대생 매칭 서비스</Text>
               </View>
             </View>
-            <View style={{flex: 3}} />
+            <View style={{flex: 249}} />
           </View>
           <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button} onPress={() => {navigation.navigate('LoginForm')}}>
-              <Text style={{fontSize: 15, color: "#FFFFFF"}}>시작하기</Text>
+              <Text style={styles.buttonText}>시작하기</Text>
             </TouchableOpacity>
           </View>
+          <View style={{flex:26}}/>
         </View>
     );
 }
 
-const makeStyles = (width, height) => StyleSheet.create({
-  container: {
-    flex: 1,
-    width: width,
-    height: height,
-    justifyContent:"center",
-    alignItems: "center",
-    backgroundColor: "#FFFFFF",
-  },
-  startContainer:{
-    flex: 7,
-  },
+const Styles = StyleSheet.create({
   logoContainer: {
-    flex: 6,
-    width: width,
+    flex: 161,
+    width: "100%",
     justifyContent:"center",
     alignItems: "center",
   },
   logo: {
-    flex: 4,
+    flex: 80,
     justifyContent:"center",
     alignItems: "center",
     textAlignVertical: "center",
   },
   intro: {
-    flex: 2,
+    flex: 81,
     justifyContent:"center",
     alignItems: "center",
     textAlignVertical: "center",
   },
-  titleText: {
-    fontSize: 25,
-    fontFamily:'GongGothic',
-  },
-  descriptionText: {
+  semiTitleText: {
     fontSize: 14,
-    fontFamily:'GongGothic',
-  },
-  buttonContainer: {
-    flex: 1,
-    justifyContent:"center",
-    alignItems: "center",
-    width: "100%",
-    height: "100%",
-  },
-  button: {
-    backgroundColor: "#BB2649",
-    borderRadius: 7,
-    width: "90%",
-    height: "60%",
-    alignItems: "center",
-    justifyContent: "center",
+    fontFamily:'PretendardRegular',
   },
 })

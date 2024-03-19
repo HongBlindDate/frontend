@@ -6,8 +6,6 @@ import useCustomFonts from '../../utils/FontLoader';
 import styles from './theme.js';
 
 export default function Start({navigation}) {
-  const {width, height} = useWindowDimensions();
-  const styles = makeStyles(width, height);
   const fontLoaded = useCustomFonts();
 
   if (!fontLoaded) {

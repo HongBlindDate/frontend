@@ -18,9 +18,18 @@ const LoginStackNavigator = () => {
       <Stack.Navigator>
         <Stack.Group>
             <Stack.Screen name = "Start" component={Start} options={{ headerShown: false }}/>
-            <Stack.Screen name = "LoginForm" component={LoginForm} options={{ title: false }}/>
+            <Stack.Screen name = "LoginForm" component={LoginForm} options={{ headerShown: false }}/>
             <Stack.Screen name = "TermsOfUse" component={TermsOfUse} options={{ title: false }}/>
-            <Stack.Screen name = "Join" component={Join} options={{ title: "회원가입" }}/>
+            <Stack.Screen name = "Join" component={Join} options={{
+              title: "회원가입",
+              headerStyle: {
+                elevation: 0,
+              },
+              headerTitleStyle: {
+                fontFamily: 'PretendardMedium',
+                fontSize: 18,
+              }
+            }}/>
             <Stack.Screen name="Email" component={Email} options={{ title: false }}/>
             <Stack.Screen name = "FindID" component={FindID} />
             <Stack.Screen name = "FindPW" component={FindPW} />

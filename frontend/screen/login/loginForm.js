@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View , TouchableOpacity, Alert , Image, useWindowDimensions } from 'react-native';
+import { StyleSheet, Text, TextInput, View , TouchableOpacity, Alert , Image} from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { TextInput } from 'react-native-paper';
 
 import eye from '../../assets/images/eye.png';
 import eye_off from '../../assets/images/eye-off.png';
@@ -11,8 +10,6 @@ import styles from './theme.js';
 //should get the key from backend
 const key = "abc";
 export default function LoginForm({navigation}) {
-    const {width, height} = useWindowDimensions();
-    const styles = makeStyles(width, height);
     const [id, setId] = useState("");
     const [pw, setPw] = useState("");
     // const [status, setStatus] = useState("");

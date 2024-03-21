@@ -104,7 +104,7 @@ const Styles = StyleSheet.create({
         color: "#FFFFFF",
     },
     other: {
-        flex: 14,
+        lineHeight: 14,
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "row",

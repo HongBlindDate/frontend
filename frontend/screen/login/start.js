@@ -1,7 +1,8 @@
 import React from 'react';
 import 'react-native-gesture-handler';
-import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import useCustomFonts from '../../utils/FontLoader';
+import LOGO from '../../assets/images/logo.png';
 
 import styles from './theme.js';
 
@@ -16,7 +17,9 @@ export default function Start({navigation}) {
           <View style={{flex: 658}}>
             <View style={{flex: 248}} />
             <View style={Styles.logoContainer}>
-              <Text style={Styles.logo}>로고</Text>
+              <View style={Styles.logo}>
+                <Image source={LOGO} />
+              </View>
               <View style={Styles.intro}>
                 <View style={{flex:29}}/>
                 <Text style={styles.title1}>홍개팅</Text>
